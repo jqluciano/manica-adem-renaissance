@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ContactoRouteImport } from './routes/contacto'
 import { Route as GaleriaRouteImport } from './routes/galeria'
 import { Route as NoticiasRouteImport } from './routes/noticias'
 import { Route as ProjectosRouteImport } from './routes/projectos'
@@ -19,6 +20,11 @@ import { Route as SobreRouteImport } from './routes/sobre'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactoRoute = ContactoRouteImport.update({
+  id: '/contacto',
+  path: '/contacto',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GaleriaRoute = GaleriaRouteImport.update({
@@ -49,6 +55,7 @@ const SobreRoute = SobreRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contacto': typeof ContactoRoute
   '/galeria': typeof GaleriaRoute
   '/noticias': typeof NoticiasRoute
   '/projectos': typeof ProjectosRoute
@@ -57,6 +64,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contacto': typeof ContactoRoute
   '/galeria': typeof GaleriaRoute
   '/noticias': typeof NoticiasRoute
   '/projectos': typeof ProjectosRoute
@@ -66,6 +74,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contacto': typeof ContactoRoute
   '/galeria': typeof GaleriaRoute
   '/noticias': typeof NoticiasRoute
   '/projectos': typeof ProjectosRoute
@@ -75,12 +84,26 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/galeria' | '/noticias' | '/projectos' | '/publicacoes' | '/sobre'
+    | '/'
+    | '/contacto'
+    | '/galeria'
+    | '/noticias'
+    | '/projectos'
+    | '/publicacoes'
+    | '/sobre'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/galeria' | '/noticias' | '/projectos' | '/publicacoes' | '/sobre'
+  to:
+    | '/'
+    | '/contacto'
+    | '/galeria'
+    | '/noticias'
+    | '/projectos'
+    | '/publicacoes'
+    | '/sobre'
   id:
     | '__root__'
     | '/'
+    | '/contacto'
     | '/galeria'
     | '/noticias'
     | '/projectos'
@@ -90,6 +113,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContactoRoute: typeof ContactoRoute
   GaleriaRoute: typeof GaleriaRoute
   NoticiasRoute: typeof NoticiasRoute
   ProjectosRoute: typeof ProjectosRoute
@@ -104,6 +128,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contacto': {
+      id: '/contacto'
+      path: '/contacto'
+      fullPath: '/contacto'
+      preLoaderRoute: typeof ContactoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/galeria': {
@@ -146,6 +177,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContactoRoute: ContactoRoute,
   GaleriaRoute: GaleriaRoute,
   NoticiasRoute: NoticiasRoute,
   ProjectosRoute: ProjectosRoute,
