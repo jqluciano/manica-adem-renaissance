@@ -1,0 +1,122 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { PageHero } from "@/components/site/PageHero";
+import { areas, images, impacto } from "@/data/site";
+
+export const Route = createFileRoute("/sobre")({
+  head: () => ({
+    meta: [
+      { title: "Sobre nós — ADEM Manica" },
+      {
+        name: "description",
+        content:
+          "Conheça a ADEM: missão, visão, valores e história da Agência de Desenvolvimento Económico de Manica, em Moçambique.",
+      },
+      { property: "og:title", content: "Sobre nós — ADEM Manica" },
+      {
+        property: "og:description",
+        content: "Missão, visão, valores e áreas de actuação da ADEM na província de Manica.",
+      },
+    ],
+  }),
+  component: Sobre,
+});
+
+const valores = [
+  { titulo: "Proximidade", texto: "Trabalhamos no terreno, com as comunidades e para elas." },
+  { titulo: "Transparência", texto: "Prestamos contas dos recursos e dos resultados alcançados." },
+  { titulo: "Inclusão", texto: "Damos prioridade a mulheres, jovens e zonas rurais mais remotas." },
+  { titulo: "Sustentabilidade", texto: "Soluções que perduram para além da duração dos projectos." },
+];
+
+function Sobre() {
+  return (
+    <>
+      <PageHero
+        eyebrow="Quem somos"
+        titulo="Sobre a ADEM"
+        descricao="A Agência de Desenvolvimento Económico de Manica é uma instituição sem fins lucrativos dedicada à promoção do desenvolvimento económico local na província de Manica, Moçambique."
+      />
+
+      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+        <div className="grid items-center gap-10 md:grid-cols-2">
+          <div>
+            <h2 className="text-2xl font-bold text-foreground sm:text-3xl">A nossa história</h2>
+            <p className="mt-4 text-muted-foreground">
+              Criada para responder aos desafios económicos das comunidades de Manica, a ADEM
+              começou por apoiar pequenos produtores agrícolas e associações rurais. Ao longo dos
+              anos, alargou a sua actuação ao desenvolvimento empresarial, aos recursos naturais, ao
+              turismo e à inclusão de mulheres e jovens na economia local.
+            </p>
+            <p className="mt-4 text-muted-foreground">
+              Hoje a agência actua em nove distritos, em parceria com o Governo Provincial,
+              autoridades distritais, organizações comunitárias, sector privado e parceiros
+              internacionais.
+            </p>
+          </div>
+          <img
+            src={images.galParceria}
+            alt="Representantes institucionais assinam um acordo de parceria"
+            width={1200}
+            height={800}
+            loading="lazy"
+            className="w-full rounded-xl object-cover shadow-sm"
+          />
+        </div>
+      </section>
+
+      <section className="bg-secondary/60 py-16">
+        <div className="mx-auto grid max-w-6xl gap-6 px-4 sm:px-6 md:grid-cols-2">
+          <article className="rounded-xl border border-border bg-card p-7">
+            <h2 className="text-xl font-bold text-foreground">Missão</h2>
+            <p className="mt-3 text-muted-foreground">
+              Promover o desenvolvimento económico sustentável e inclusivo da província de Manica,
+              reforçando as capacidades de produtores, empresas e comunidades.
+            </p>
+          </article>
+          <article className="rounded-xl border border-border bg-card p-7">
+            <h2 className="text-xl font-bold text-foreground">Visão</h2>
+            <p className="mt-3 text-muted-foreground">
+              Uma província de Manica com uma economia local dinâmica, competitiva e resiliente, em
+              que todos os cidadãos participam e beneficiam do crescimento.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+        <h2 className="text-2xl font-bold text-foreground sm:text-3xl">Os nossos valores</h2>
+        <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {valores.map((valor) => (
+            <li key={valor.titulo} className="rounded-xl border border-border bg-card p-6">
+              <h3 className="font-semibold text-foreground">{valor.titulo}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">{valor.texto}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="bg-primary py-14 text-primary-foreground">
+        <div className="mx-auto grid max-w-6xl gap-8 px-4 sm:grid-cols-2 sm:px-6 lg:grid-cols-4">
+          {impacto.map((item) => (
+            <div key={item.rotulo}>
+              <p className="text-3xl font-bold text-accent sm:text-4xl">{item.valor}</p>
+              <p className="mt-2 text-sm text-primary-foreground/85">{item.rotulo}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+        <h2 className="text-2xl font-bold text-foreground sm:text-3xl">Áreas estratégicas</h2>
+        <ul className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {areas.map((area) => (
+            <li key={area.titulo} className="rounded-xl border border-border bg-card p-6">
+              <h3 className="font-semibold text-foreground">{area.titulo}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">{area.texto}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </>
+  );
+}
