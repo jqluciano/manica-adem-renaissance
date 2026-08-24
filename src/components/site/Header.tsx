@@ -19,7 +19,7 @@ export function Header() {
           <span className="leading-tight">
             <span className="block text-base font-bold text-foreground">ADEM</span>
             <span className="hidden text-[11px] uppercase tracking-wide text-muted-foreground sm:block">
-              Desenvolvimento Económico de Manica
+              Agência Desenvolvimento Económico da Província de Manica
             </span>
           </span>
         </Link>
