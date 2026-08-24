@@ -38,7 +38,7 @@ function Index() {
             Província de Manica · Moçambique
           </p>
           <h1 className="mt-6 max-w-2xl text-5xl font-bold leading-tight tracking-tight sm:text-5xl md:text-5xl">
-            Agência de Desenvolvimento económico da Província de Manica ao serviço das comunidades de Manica
+            Agência de Desenvolvimento Económico da Província de Manica ao serviço das comunidades de Manica
           </h1>
           <p className="mt-6 max-w-2xl text-base text-primary-foreground/90 sm:text-lg">
             A ADEM apoia produtores, empresas e comunidades a gerar rendimento, criar emprego e
