@@ -9,7 +9,7 @@ export const Route = createFileRoute("/sobre")({
       {
         name: "description",
         content:
-          "Conheça a ADEM: missão, visão, valores e história da Agência de Desenvolvimento Económico de Manica, em Moçambique.",
+          "Conheça a ADEM: missão, visão, valores e história da Agência de Desenvolvimento Económico da Província de Manica, em Moçambique.",
       },
       { property: "og:title", content: "Sobre nós — ADEM Manica" },
       {
@@ -34,7 +34,7 @@ function Sobre() {
       <PageHero
         eyebrow="Quem somos"
         titulo="Sobre a ADEM"
-        descricao="A Agência de Desenvolvimento Económico de Manica é uma instituição sem fins lucrativos dedicada à promoção do desenvolvimento económico local na província de Manica, Moçambique."
+        descricao="A Agência de Desenvolvimento Económico da Província de Manica é uma instituição sem fins lucrativos dedicada à promoção do desenvolvimento económico local e Sustentável na província de Manica, Moçambique."
       />
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
@@ -42,13 +42,34 @@ function Sobre() {
           <div>
             <h2 className="text-2xl font-bold text-foreground sm:text-3xl">A nossa história</h2>
             <p className="mt-4 text-muted-foreground">
+              A ADEM, foi constituída legal e juridicamente em novembro de 2000 como
+              uma associação nacional de direito privado, com personalidade jurídica própria,
+              sem fins lucrativos, autonomia administrativa, financeira, patrimonial. 
+              A publicação oficial no Boletim da Republica foi feita no dia 04 de 
+              Abril de 2001 III Série Numero 14 pagina 417. Actualmente a ADEM possui 22 membros dos
+              quais instituições públicas e privadas. A estrutura da ADEM é composta por uma Assembleia Geral,
+              um Conselho de Direcção, um Conselho Fiscal e uma direcção executiva composta por técnicos e 
+              pessoal administrativo com diferentes áreas de saber. A ADEM é uma instituição facilitadora e
+              de prestação de serviços de desenvolvimento.
+            </p>
+            <p className="mt-4 text-muted-foreground">
+              ADEM é um mecanismo que viabiliza o combate à pobreza e a exclusão social na medida em que põem à 
+              disposição dos grupos vulneráveis tradicionalmente excluídos dos processos de desenvolvimento, 
+              os instrumentos técnicos e organizativos para, progressivamente, transformarem-se em sujeitos activos 
+              do próprio desenvolvimento. Mediante os serviços prestados a ADEM proporciona aos grupos alvo, 
+              (apoio à organização, capacitação, assistência técnica, estudos de viabilidade dos projectos, apoio ao
+              financiamento dos projectos, apoio à comercialização, melhoria do ambiente de negócios) estes constroem 
+              as próprias capacidades de competitividade no território e no mercado, numa lógica de cadeia de valor e 
+              de inclusão nos processos de desenvolvimento.
+            </p>
+            <p className="mt-4 text-muted-foreground">
               Criada para responder aos desafios económicos das comunidades de Manica, a ADEM
               começou por apoiar pequenos produtores agrícolas e associações rurais. Ao longo dos
               anos, alargou a sua actuação ao desenvolvimento empresarial, aos recursos naturais, ao
               turismo e à inclusão de mulheres e jovens na economia local.
             </p>
             <p className="mt-4 text-muted-foreground">
-              Hoje a agência actua em nove distritos, em parceria com o Governo Provincial,
+              Hoje a agência actua em três Províncias do País (Manica, Sofala e Tete), na Província de Manica a ADEM actua todos distritos, em parceria com o Governo Provincial,
               autoridades distritais, organizações comunitárias, sector privado e parceiros
               internacionais.
             </p>
@@ -69,15 +90,19 @@ function Sobre() {
           <article className="rounded-xl border border-border bg-card p-7">
             <h2 className="text-xl font-bold text-foreground">Missão</h2>
             <p className="mt-3 text-muted-foreground">
-              Promover o desenvolvimento económico sustentável e inclusivo da província de Manica,
-              reforçando as capacidades de produtores, empresas e comunidades.
+              A missão visa contribuir para o Desenvolvimento Económico Local, sustentável e 
+              resiliente no corredor de Desenvolvimento da Beira com particular enfoque para província de
+              Manica através de advocacia e governação económica local, provisão de serviços de 
+              desenvolvimento de negócio (financeiros e não financeiros) para a melhoria do ambiente de
+              negócios e da competitividade das micro, pequenas e médias empresas, com enfoque nas 
+              zonas rurais e grupos de pessoas vulneráveis e desfavorecidas.
             </p>
           </article>
           <article className="rounded-xl border border-border bg-card p-7">
             <h2 className="text-xl font-bold text-foreground">Visão</h2>
             <p className="mt-3 text-muted-foreground">
-              Uma província de Manica com uma economia local dinâmica, competitiva e resiliente, em
-              que todos os cidadãos participam e beneficiam do crescimento.
+              Ser uma instituição acreditada ao nível nacional na provisão de serviços 
+              de qualidade para o desenvolvimento económico local.
             </p>
           </article>
         </div>
