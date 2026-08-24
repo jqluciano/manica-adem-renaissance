@@ -12,10 +12,10 @@ export function Header() {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
         <Link to="/" className="flex items-center gap-3" onClick={() => setAberto(false)}>
           <img
-  src="/src/assets/logotipo_da_adem.svg"
-  alt="ADEM — Agência de Desenvolvimento Económico da Província de Manica"
-  className="h-14 w-auto object-contain"
- />
+            src="/src/assets/logotipo_da_adem.svg"
+              alt="ADEM — Agência de Desenvolvimento Económico da Província de Manica"
+                className="h-14 w-auto object-contain"
+               />
           <span className="leading-tight">
             <span className="block text-base font-bold text-foreground">ADEM</span>
             <span className="hidden text-[11px] uppercase tracking-wide text-muted-foreground sm:block">
