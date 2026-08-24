@@ -37,7 +37,7 @@ function Index() {
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-accent">
             Província de Manica · Moçambique
           </p>
-          <h1 className="mt-4 max-w-3xl text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl">
+          <h1 className="mt-4 max-w-3xl text-7xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl">
             Agencia de Desenvolvimento económico da Provincia de Manica ao serviço das comunidades de Manica
           </h1>
           <p className="mt-6 max-w-2xl text-base text-primary-foreground/90 sm:text-lg">
