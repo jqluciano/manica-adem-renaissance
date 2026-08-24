@@ -1,7 +1,15 @@
 import { useEffect, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
-import { areas, contacto, heroSlides, images, impacto, noticias, projectos,} from "@/data/site";
+import {
+  areas,
+  contacto,
+  heroSlides,
+  images,
+  impacto,
+  noticias,
+  projectos,
+} from "@/data/site";
 
 export const Route = createFileRoute("/")({
   head: () => ({
