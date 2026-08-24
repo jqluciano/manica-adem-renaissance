@@ -1,6 +1,7 @@
+import { useEffect, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
-import { areas, contacto, images, impacto, noticias, projectos } from "@/data/site";
+import { areas, contacto, heroSlides, images, impacto, noticias, projectos,} from "@/data/site";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -23,44 +24,139 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  useEffect(() => {
+    if (isPaused) return;
+
+    const interval = setInterval(() => {
+      setCurrentSlide((current) => (current + 1) % heroSlides.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [isPaused]);
+
+  const nextSlide = () => {
+    setCurrentSlide((current) => (current + 1) % heroSlides.length);
+  };
+
+  const previousSlide = () => {
+    setCurrentSlide(
+      (current) => (current - 1 + heroSlides.length) % heroSlides.length
+    );
+  };
   return (
     <>
-      <section className="relative isolate overflow-hidden bg-primary text-primary-foreground">
+      <section
+  className="relative isolate h-[600px] overflow-hidden bg-primary text-primary-foreground"
+  onMouseEnter={() => setIsPaused(true)}
+  onMouseLeave={() => setIsPaused(false)}
+>
+  {/* Slides */}
+  <div
+    className="flex h-full transition-transform duration-700 ease-in-out"
+    style={{
+      transform: `translateX(-${currentSlide * 100}%)`,
+    }}
+  >
+    {heroSlides.map((slide) => (
+      <div
+        key={slide.src}
+        className="relative h-full min-w-full shrink-0"
+      >
         <img
-          src={images.heroManica}
-          alt="Vista aérea dos campos agrícolas e colinas verdes da província de Manica"
+          src={slide.src}
+          alt={slide.alt}
           width={1920}
           height={1080}
-          className="absolute inset-0 -z-10 h-full w-full object-cover opacity-30"
+          className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6 md:py-32">
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-accent">
-            Província de Manica · Moçambique
-          </p>
-          <h1 className="mt-6 max-w-2xl text-5xl font-bold leading-tight tracking-tight sm:text-5xl md:text-5xl">
-            Agência de Desenvolvimento Económico da Província de Manica ao serviço das comunidades de Manica
-          </h1>
-          <p className="mt-6 max-w-2xl text-base text-primary-foreground/90 sm:text-lg">
-            A ADEM apoia produtores, empresas e comunidades a gerar rendimento, criar emprego e
-            construir uma economia local mais justa e sustentável.
-          </p>
-          <div className="mt-9 flex flex-wrap gap-3">
-            <Link
-              to="/projectos"
-              className="inline-flex items-center gap-2 rounded-md bg-accent px-5 py-3 text-sm font-semibold text-accent-foreground transition-colors hover:bg-accent/90"
-            >
-              Ver projectos <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </Link>
-            <Link
-              to="/contacto"
-              className="inline-flex items-center rounded-md border border-primary-foreground/40 px-5 py-3 text-sm font-semibold transition-colors hover:bg-primary-foreground/10"
-            >
-              Falar connosco
-            </Link>
-          </div>
-        </div>
-      </section>
 
+        {/* Camada escura para melhorar leitura do texto */}
+        <div className="absolute inset-0 bg-black/50" />
+      </div>
+    ))}
+  </div>
+
+  {/* Conteúdo */}
+  <div className="absolute inset-0 z-10 flex items-center">
+    <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
+      <div className="max-w-4xl">
+
+        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-accent">
+          Província de Manica · Moçambique
+        </p>
+
+        <h1 className="mt-6 max-w-4xl text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
+          Agência de Desenvolvimento Económico da Província de Manica
+          <span className="block">
+            ao serviço das comunidades de Manica
+          </span>
+        </h1>
+
+        <p className="mt-6 max-w-2xl text-base text-primary-foreground/90 sm:text-lg">
+          A ADEM apoia produtores, empresas e comunidades a gerar rendimento,
+          criar emprego e construir uma economia local mais justa e sustentável.
+        </p>
+
+        <div className="mt-9 flex flex-wrap gap-3">
+          <Link
+            to="/projectos"
+            className="inline-flex items-center gap-2 rounded-md bg-accent px-5 py-3 text-sm font-semibold text-accent-foreground transition-colors hover:bg-accent/90"
+          >
+            Ver projectos
+            <ArrowRight className="h-4 w-4" aria-hidden="true" />
+          </Link>
+
+          <Link
+            to="/contacto"
+            className="inline-flex items-center rounded-md border border-primary-foreground/40 px-5 py-3 text-sm font-semibold transition-colors hover:bg-primary-foreground/10"
+          >
+            Falar connosco
+          </Link>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {/* Botão anterior */}
+  <button
+    type="button"
+    onClick={previousSlide}
+    aria-label="Imagem anterior"
+    className="absolute left-4 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/40 text-white transition hover:bg-black/70"
+  >
+    <span className="text-2xl">‹</span>
+  </button>
+
+  {/* Botão seguinte */}
+  <button
+    type="button"
+    onClick={nextSlide}
+    aria-label="Próxima imagem"
+    className="absolute right-4 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/40 text-white transition hover:bg-black/70"
+  >
+    <span className="text-2xl">›</span>
+  </button>
+
+  {/* Indicadores */}
+  <div className="absolute bottom-7 left-1/2 z-20 flex -translate-x-1/2 gap-2">
+    {heroSlides.map((slide, index) => (
+      <button
+        key={slide.src}
+        type="button"
+        onClick={() => setCurrentSlide(index)}
+        aria-label={`Mostrar imagem ${index + 1}`}
+        className={`h-2.5 rounded-full transition-all ${
+          currentSlide === index
+            ? "w-8 bg-white"
+            : "w-2.5 bg-white/50 hover:bg-white"
+        }`}
+      />
+    ))}
+  </div>
+</section>
       <section id="missao" className="mx-auto max-w-6xl px-4 py-16 sm:px-6 md:py-20">
         <div className="grid gap-10 md:grid-cols-2">
           <div>
