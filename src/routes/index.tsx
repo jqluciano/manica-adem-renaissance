@@ -11,11 +11,11 @@ export const Route = createFileRoute("/")({
         content:
           "A ADEM promove o desenvolvimento económico inclusivo da província de Manica, Moçambique: agricultura, MPME, recursos naturais, turismo e inclusão.",
       },
-      { property: "og:title", content: "ADEM — Desenvolvimento Económico de Manica" },
+      { property: "og:title", content: "ADEM — Agência de Desenvolvimento Económico da Província de Manica" },
       {
         property: "og:description",
         content:
-          "Agência de Desenvolvimento Económico de Manica: projectos, notícias, publicações e contactos.",
+          "Agência de Desenvolvimento Económico da Província de Manica: projectos, notícias, publicações e contactos.",
       },
     ],
   }),
@@ -37,8 +37,8 @@ function Index() {
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-accent">
             Província de Manica · Moçambique
           </p>
-          <h1 className="mt-4 max-w-3xl text-7xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl">
-            Agencia de Desenvolvimento económico da Provincia de Manica ao serviço das comunidades de Manica
+          <h1 className="mt-3 max-w-3xl text-7xl font-bold leading-tight tracking-tight sm:text-7xl md:text-7xl">
+            Agência de Desenvolvimento económico da Província de Manica ao serviço das comunidades de Manica
           </h1>
           <p className="mt-6 max-w-2xl text-base text-primary-foreground/90 sm:text-lg">
             A ADEM apoia produtores, empresas e comunidades a gerar rendimento, criar emprego e
