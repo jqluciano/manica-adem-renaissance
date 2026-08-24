@@ -16,7 +16,7 @@ export const Route = createFileRoute("/contacto")({
       { property: "og:title", content: "Contacto — ADEM Manica" },
       {
         property: "og:description",
-        content: "Fale com a Agência de Desenvolvimento Económico de Manica, em Chimoio.",
+        content: "Fale com a Agência de Desenvolvimento Económico da Província de Manica, em Chimoio.",
       },
     ],
   }),
