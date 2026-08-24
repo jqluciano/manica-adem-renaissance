@@ -10,12 +10,11 @@ export function Header() {
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
         <Link to="/" className="flex items-center gap-3" onClick={() => setAberto(false)}>
-          <span
-            aria-hidden="true"
-            className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-sm font-bold tracking-tight text-primary-foreground"
-          >
-            AD
-          </span>
+          <img
+  src="/src/assets/logotipo_da_adem.svg"
+  alt="ADEM — Agência de Desenvolvimento Económico da Província de Manica"
+  className="h-14 w-auto object-contain"
+ />
           <span className="leading-tight">
             <span className="block text-base font-bold text-foreground">ADEM</span>
             <span className="hidden text-[11px] uppercase tracking-wide text-muted-foreground sm:block">
