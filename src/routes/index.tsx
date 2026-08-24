@@ -5,7 +5,7 @@ import { areas, contacto, images, impacto, noticias, projectos } from "@/data/si
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "ADEM — Agência de Desenvolvimento Económico de Manica" },
+      { title: "ADEM — Agência de Desenvolvimento Económico da Província de Manica" },
       {
         name: "description",
         content:
@@ -38,7 +38,7 @@ function Index() {
             Província de Manica · Moçambique
           </p>
           <h1 className="mt-4 max-w-3xl text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl">
-            Desenvolvimento económico ao serviço das comunidades de Manica
+            Agencia de Desenvolvimento económico da Provincia de Manica ao serviço das comunidades de Manica
           </h1>
           <p className="mt-6 max-w-2xl text-base text-primary-foreground/90 sm:text-lg">
             A ADEM apoia produtores, empresas e comunidades a gerar rendimento, criar emprego e
@@ -66,9 +66,12 @@ function Index() {
           <div>
             <h2 className="text-2xl font-bold text-foreground sm:text-3xl">A nossa missão</h2>
             <p className="mt-4 text-muted-foreground">
-              Promover o desenvolvimento económico sustentável e inclusivo da província de Manica,
-              reforçando as capacidades de produtores, micro e pequenas empresas e organizações
-              comunitárias, e facilitando o acesso a mercados, conhecimento e financiamento.
+              A missão visa contribuir para o Desenvolvimento Económico Local, sustentável e 
+              resiliente no corredor de Desenvolvimento da Beira com particular enfoque para 
+              província de Manica através de advocacia e governação económica local, provisão de
+              serviços de desenvolvimento de negócio (financeiros e não financeiros) para a melhoria do
+              ambiente de negócios e da competitividade das micro, pequenas e médias empresas, 
+              com enfoque nas zonas rurais e grupos de pessoas vulneráveis e desfavorecidas.
             </p>
             <Link
               to="/sobre"
