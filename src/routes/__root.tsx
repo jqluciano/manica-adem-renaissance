@@ -80,17 +80,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "ADEM — Agência de Desenvolvimento Económico de Manica" },
+      { title: "ADEM — Agência de Desenvolvimento Económico da Província de Manica" },
       {
         name: "description",
         content:
-          "Agência de Desenvolvimento Económico de Manica: projectos, notícias e serviços de apoio a produtores e empresas.",
+          "Agência de Desenvolvimento Económico da Província de Manica: projectos, notícias e serviços de apoio a produtores e empresas.",
       },
       { name: "author", content: "ADEM" },
-      { property: "og:title", content: "ADEM — Desenvolvimento Económico de Manica" },
+      { property: "og:title", content: "ADEM — Agência de Desenvolvimento Económico da Província de Manica" },
       {
         property: "og:description",
-        content: "Desenvolvimento económico inclusivo na província de Manica, Moçambique.",
+        content: "Agência de Desenvolvimento económico inclusivo na província de Manica, Moçambique.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
