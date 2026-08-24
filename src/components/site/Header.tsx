@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
 import { navegacao } from "@/data/site";
+import logoAdem from "@/assets/logotipo_da_adem.svg";
 
 export function Header() {
   const [aberto, setAberto] = useState(false);
