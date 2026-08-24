@@ -9,7 +9,7 @@ export function Footer() {
         <div>
           <h2 className="text-lg font-bold">ADEM</h2>
           <p className="mt-2 text-sm text-primary-foreground/80">
-            Agência de Desenvolvimento Económico de Manica — promovendo uma economia local
+            Agência de Desenvolvimento Económico da Província de Manica — promovendo uma economia local
             inclusiva, competitiva e sustentável.
           </p>
           <ul className="mt-5 flex flex-wrap gap-3">
@@ -73,7 +73,7 @@ export function Footer() {
 
       <div className="border-t border-primary-foreground/15">
         <p className="mx-auto max-w-6xl px-4 py-5 text-xs text-primary-foreground/70 sm:px-6">
-          © {new Date().getFullYear()} ADEM — Agência de Desenvolvimento Económico de Manica. Todos
+          © {new Date().getFullYear()} ADEM — Agência de Desenvolvimento Económico Província de Manica. Todos
           os direitos reservados.
         </p>
       </div>
