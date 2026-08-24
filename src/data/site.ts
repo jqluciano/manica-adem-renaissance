@@ -18,17 +18,40 @@ export const images = {
   galMpme,
 };
 
+export const heroSlides = [
+  {
+    src: heroManica,
+    alt: "Vista aérea dos campos agrícolas e colinas da província de Manica",
+  },
+  {
+    src: projAgricultura,
+    alt: "Produtores agrícolas da província de Manica",
+  },
+  {
+    src: projFormacao,
+    alt: "Formação de empreendedores na província de Manica",
+  },
+  {
+    src: projMineracao,
+    alt: "Actividades de mineração artesanal em Manica",
+  },
+  {
+    src: galTurismo,
+    alt: "Paisagem turística da região de Manica",
+  },
+];
+
 export const contacto = {
-  organizacao: "ADEM — Agência de Desenvolvimento Económico de Manica",
-  morada: "Av. Samora Machel, Bairro 1º de Maio, Chimoio, Província de Manica, Moçambique",
-  telefone: "+258 25 122 800",
-  telemovel: "+258 84 000 0000",
-  email: "info@adem.org.mz",
-  horario: "Segunda a sexta, 07:30 — 15:30",
+  organizacao: "ADEM — Agência de Desenvolvimento Económico da Província de Manica",
+  morada: "Rua 16 de Junho, nr 217, Chimoio, Manica, Moçambique Província de Manica, Moçambique",
+  telefone: "+258 251 22414",
+  telemovel: "+258 835140347",
+  email: "ademmanica@ademmanica.org",
+  horario: "Segunda a Quinta, 07:30 — 15:30", Sexta, 07:30 — 13:00
   redes: [
-    { nome: "Facebook", url: "https://www.facebook.com/" },
-    { nome: "LinkedIn", url: "https://www.linkedin.com/" },
-    { nome: "YouTube", url: "https://www.youtube.com/" },
+    { nome: "Facebook", url: "https://www.instagram.com/ademmanica" },
+    { nome: "LinkedIn", url: "https://www.linkedin.com/in/adem-manica/" },
+    { nome: "YouTube", url: "https://www.youtube.com/@ademmanica73" },
   ],
 };
 
