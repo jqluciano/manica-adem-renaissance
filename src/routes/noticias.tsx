@@ -22,7 +22,8 @@ export const Route = createFileRoute("/noticias")({
 });
 
 function Noticias() {
-  const [destaque, ...restantes] = noticias;
+  const destaque = noticias[0]!;
+  const restantes = noticias.slice(1);
 
   return (
     <>
