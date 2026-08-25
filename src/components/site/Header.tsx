@@ -2,27 +2,22 @@ import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
 import { navegacao } from "@/data/site";
-import logoAdem from "@/assets/logotipo_da_adem.svg";
+import ademLogo from "@/assets/adem-logo.png.asset.json";
 
 export function Header() {
   const [aberto, setAberto] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
-        <Link to="/" className="flex items-center gap-3" onClick={() => setAberto(false)}>
+      <div className="mx-auto grid h-20 max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 sm:px-6">
+        <Link to="/" className="flex min-w-0 items-center" onClick={() => setAberto(false)}>
           <img
-            src="/src/assets/logotipo_da_adem.svg"
-              alt="ADEM — Agência de Desenvolvimento Económico da Província de Manica"
-                className="h-14 w-auto object-contain"
-               />
-          <span className="leading-tight">
-            <span className="block text-base font-bold text-foreground">ADEM</span>
-            <span className="hidden text-[11px] uppercase tracking-wide text-muted-foreground sm:block">
-              Agência Desenvolvimento Económico da Província de Manica
-            </span>
-          </span>
+            src={ademLogo.url}
+            alt="ADEM — Agência de Desenvolvimento Económico da Província de Manica"
+            className="h-12 w-auto max-w-[190px] object-contain sm:h-14 sm:max-w-[230px]"
+          />
         </Link>
+
 
         <nav aria-label="Navegação principal" className="hidden lg:block">
           <ul className="flex items-center gap-1">
