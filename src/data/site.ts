@@ -1,3 +1,4 @@
+import { imagensReais, imagensReaisHero } from "@/data/imagens-reais";
 import heroManica from "@/assets/hero-manica.jpg";
 import projAgricultura from "@/assets/proj-agricultura.jpg";
 import projFormacao from "@/assets/proj-formacao.jpg";
@@ -18,7 +19,7 @@ export const images = {
   galMpme,
 };
 
-export const heroSlides = [
+const heroSlidesBase = [
   {
     src: heroManica,
     alt: "Vista aérea dos campos agrícolas e colinas da província de Manica",
@@ -68,8 +69,8 @@ export const navegacao = [
 export const impacto = [
   { valor: "25+", rotulo: "Anos ao serviço de Manica" },
   { valor: "12 000+", rotulo: "Produtores e empreendedores apoiados" },
-  { valor: "9", rotulo: "Distritos abrangidos" },
-  { valor: "40+", rotulo: "Projectos implementados com parceiros" },
+  { valor: "3", rotulo: "Províncias abrangidas (Sofala, Tete e Manica) — em Manica, todos os distritos" },
+  { valor: "12+", rotulo: "Projectos implementados com parceiros" },
 ];
 
 export const areas = [
@@ -84,10 +85,11 @@ export const areas = [
       "Formação em gestão, planos de negócio, formalização e acesso a financiamento para micro, pequenas e médias empresas.",
   },
   {
-    titulo: "Recursos naturais e mineração",
+    titulo: "Recursos naturais e Salvaguarda",
     texto:
       "Apoio à mineração artesanal responsável, gestão comunitária de recursos e mitigação de impactos ambientais.",
   },
+
   {
     titulo: "Turismo e economia local",
     texto:
@@ -320,7 +322,7 @@ export const publicacoes: Publicacao[] = [
   },
 ];
 
-export const galeria = [
+const galeriaBase = [
   { src: galMercado, alt: "Mulheres de uma cooperativa vendem hortícolas num mercado local" },
   { src: projAgricultura, alt: "Produtores durante a colheita de milho num campo em Manica" },
   { src: projFormacao, alt: "Sessão de formação para empreendedores numa sala em Chimoio" },
@@ -329,4 +331,14 @@ export const galeria = [
   { src: galParceria, alt: "Assinatura de um acordo de parceria institucional" },
   { src: galMpme, alt: "Jovem empreendedora a trabalhar numa oficina de carpintaria" },
   { src: heroManica, alt: "Vista aérea de campos agrícolas no vale de Manica" },
+];
+
+/** Imagens reais colocadas em src/assets/reais/ são usadas automaticamente. */
+export const heroSlides = imagensReaisHero.length
+  ? imagensReaisHero.map((i) => ({ src: i.src, alt: i.alt }))
+  : heroSlidesBase;
+
+export const galeria = [
+  ...imagensReais.map((i) => ({ src: i.src, alt: i.alt })),
+  ...galeriaBase,
 ];
