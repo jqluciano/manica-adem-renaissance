@@ -68,8 +68,8 @@ export const navegacao = [
 export const impacto = [
   { valor: "25+", rotulo: "Anos ao serviço de Manica" },
   { valor: "12 000+", rotulo: "Produtores e empreendedores apoiados" },
-  { valor: "9", rotulo: "Distritos abrangidos" },
-  { valor: "40+", rotulo: "Projectos implementados com parceiros" },
+  { valor: "3", rotulo: "Províncias abrangidas (Sofala, Tete e Manica) — em Manica, todos os distritos" },
+  { valor: "12+", rotulo: "Projectos implementados com parceiros" },
 ];
 
 export const areas = [
@@ -84,10 +84,11 @@ export const areas = [
       "Formação em gestão, planos de negócio, formalização e acesso a financiamento para micro, pequenas e médias empresas.",
   },
   {
-    titulo: "Recursos naturais e mineração",
+    titulo: "Recursos naturais e Salvaguarda",
     texto:
       "Apoio à mineração artesanal responsável, gestão comunitária de recursos e mitigação de impactos ambientais.",
   },
+
   {
     titulo: "Turismo e economia local",
     texto:
