@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
 import {
@@ -10,6 +9,7 @@ import {
   noticias,
   projectos,
 } from "@/data/site";
+import { HeroCarousel } from "@/components/site/HeroCarousel";
 
 export const Route = createFileRoute("/")({
   head: () => ({
