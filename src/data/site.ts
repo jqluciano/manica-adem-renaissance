@@ -47,7 +47,7 @@ export const contacto = {
   telefone: "+258 251 22414",
   telemovel: "+258 835140347",
   email: "ademmanica@ademmanica.org",
-  horario: "Segunda a Quinta, 07:30 — 15:30", Sexta, 07:30 — 13:00
+  horario: "Segunda a Quinta, 07:30 — 15:30 · Sexta, 07:30 — 13:00",
   redes: [
     { nome: "Facebook", url: "https://www.instagram.com/ademmanica" },
     { nome: "LinkedIn", url: "https://www.linkedin.com/in/adem-manica/" },
