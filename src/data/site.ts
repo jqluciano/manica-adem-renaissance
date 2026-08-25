@@ -1,3 +1,4 @@
+import { imagensReais, imagensReaisHero } from "@/data/imagens-reais";
 import heroManica from "@/assets/hero-manica.jpg";
 import projAgricultura from "@/assets/proj-agricultura.jpg";
 import projFormacao from "@/assets/proj-formacao.jpg";
@@ -18,7 +19,7 @@ export const images = {
   galMpme,
 };
 
-export const heroSlides = [
+const heroSlidesBase = [
   {
     src: heroManica,
     alt: "Vista aérea dos campos agrícolas e colinas da província de Manica",
@@ -321,7 +322,7 @@ export const publicacoes: Publicacao[] = [
   },
 ];
 
-export const galeria = [
+const galeriaBase = [
   { src: galMercado, alt: "Mulheres de uma cooperativa vendem hortícolas num mercado local" },
   { src: projAgricultura, alt: "Produtores durante a colheita de milho num campo em Manica" },
   { src: projFormacao, alt: "Sessão de formação para empreendedores numa sala em Chimoio" },
@@ -330,4 +331,14 @@ export const galeria = [
   { src: galParceria, alt: "Assinatura de um acordo de parceria institucional" },
   { src: galMpme, alt: "Jovem empreendedora a trabalhar numa oficina de carpintaria" },
   { src: heroManica, alt: "Vista aérea de campos agrícolas no vale de Manica" },
+];
+
+/** Imagens reais colocadas em src/assets/reais/ são usadas automaticamente. */
+export const heroSlides = imagensReaisHero.length
+  ? imagensReaisHero.map((i) => ({ src: i.src, alt: i.alt }))
+  : heroSlidesBase;
+
+export const galeria = [
+  ...imagensReais.map((i) => ({ src: i.src, alt: i.alt })),
+  ...galeriaBase,
 ];
