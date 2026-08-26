@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { CardCarousel } from "@/components/site/CardCarousel";
 import { PageHero } from "@/components/site/PageHero";
 import { areas, images, impacto } from "@/data/site";
 
@@ -26,6 +27,14 @@ const valores = [
   { titulo: "Transparência", texto: "Prestamos contas dos recursos e dos resultados alcançados." },
   { titulo: "Inclusão", texto: "Damos prioridade a mulheres, jovens e zonas rurais mais remotas." },
   { titulo: "Sustentabilidade", texto: "Soluções que perduram para além da duração dos projectos." },
+];
+
+const objectivosEspecificos = [
+  "Promover o melhoramento do ambiente de negócio a nível micro através da inserção da estratégia de DEL – Desenvolvimento Económico Local na planificação distrital.",
+  "Promover e expandir serviços e produtos financeiros inclusivos, sustentáveis e acessíveis para micro, pequenas e médias empresas engajadas em cadeias produtivas.",
+  "Fortalecer e expandir o desenvolvimento de agro-negócios na lógica de cadeia de valor capaz de dinamizar a economia, a segurança alimentar e criar empregos decentes.",
+  "Fortalecer práticas sustentáveis de adaptação climática para reduzir a exposição e vulnerabilidade dos projectos de desenvolvimento das comunidades.",
+  "Aumentar a competitividade e sustentabilidade da agência.",
 ];
 
 function Sobre() {
@@ -86,26 +95,64 @@ function Sobre() {
       </section>
 
       <section className="bg-secondary/60 py-16">
-        <div className="mx-auto grid max-w-6xl gap-6 px-4 sm:px-6 md:grid-cols-2">
-          <article className="rounded-xl border border-border bg-card p-7">
-            <h2 className="text-xl font-bold text-foreground">Missão</h2>
-            <p className="mt-3 text-muted-foreground">
-              A missão visa contribuir para o Desenvolvimento Económico Local, sustentável e 
-              resiliente no corredor de Desenvolvimento da Beira com particular enfoque para província de
-              Manica através de advocacia e governação económica local, provisão de serviços de 
-              desenvolvimento de negócio (financeiros e não financeiros) para a melhoria do ambiente de
-              negócios e da competitividade das micro, pequenas e médias empresas, com enfoque nas 
-              zonas rurais e grupos de pessoas vulneráveis e desfavorecidas.
-            </p>
-          </article>
-          <article className="rounded-xl border border-border bg-card p-7">
-            <h2 className="text-xl font-bold text-foreground">Visão</h2>
-            <p className="mt-3 text-muted-foreground">
-              Ser uma instituição acreditada ao nível nacional na provisão de serviços 
-              de qualidade para o desenvolvimento económico local.
-            </p>
-          </article>
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <h2 className="text-2xl font-bold text-foreground sm:text-3xl">
+            Missão, visão e objectivos
+          </h2>
+          <div className="mt-8">
+            <CardCarousel
+              ariaLabel="Missão, visão e objectivos da ADEM"
+              items={[
+                {
+                  titulo: "Missão",
+                  conteudo: (
+                    <p>
+                      A missão visa contribuir para o Desenvolvimento Económico Local, sustentável
+                      e resiliente no corredor de Desenvolvimento da Beira com particular enfoque
+                      para província de Manica através de advocacia e governação económica local,
+                      provisão de serviços de desenvolvimento de negócio (financeiros e não
+                      financeiros) para a melhoria do ambiente de negócios e da competitividade das
+                      micro, pequenas e médias empresas, com enfoque nas zonas rurais e grupos de
+                      pessoas vulneráveis e desfavorecidas.
+                    </p>
+                  ),
+                },
+                {
+                  titulo: "Visão",
+                  conteudo: (
+                    <p>
+                      Ser uma instituição acreditada ao nível nacional na provisão de serviços de
+                      qualidade para o desenvolvimento económico local.
+                    </p>
+                  ),
+                },
+                {
+                  titulo: "Objectivo Geral",
+                  conteudo: (
+                    <p>
+                      Desenvolver e consolidar intervenções inovadoras e modelos de desenvolvimento
+                      que promovam o aumento da produção e produtividade e fortaleçam a economia
+                      local através de um tecido produtivo e empresarial sólido, competitivo e que
+                      preserve os ecossistemas das paisagens ao nível local.
+                    </p>
+                  ),
+                },
+              ]}
+            />
+          </div>
         </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+        <h2 className="text-2xl font-bold text-foreground sm:text-3xl">Objectivos específicos</h2>
+        <ul className="mt-8 grid gap-6 md:grid-cols-2">
+          {objectivosEspecificos.map((objectivo, i) => (
+            <li key={objectivo} className="rounded-xl border border-border bg-card p-6">
+              <span className="text-sm font-bold text-accent">{String(i + 1).padStart(2, "0")}</span>
+              <p className="mt-2 text-sm text-muted-foreground">{objectivo}</p>
+            </li>
+          ))}
+        </ul>
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
