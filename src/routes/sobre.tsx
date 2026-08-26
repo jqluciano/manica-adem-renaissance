@@ -29,6 +29,14 @@ const valores = [
   { titulo: "Sustentabilidade", texto: "Soluções que perduram para além da duração dos projectos." },
 ];
 
+const objectivosEspecificos = [
+  "Promover o melhoramento do ambiente de negócio a nível micro através da inserção da estratégia de DEL – Desenvolvimento Económico Local na planificação distrital.",
+  "Promover e expandir serviços e produtos financeiros inclusivos, sustentáveis e acessíveis para micro, pequenas e médias empresas engajadas em cadeias produtivas.",
+  "Fortalecer e expandir o desenvolvimento de agro-negócios na lógica de cadeia de valor capaz de dinamizar a economia, a segurança alimentar e criar empregos decentes.",
+  "Fortalecer práticas sustentáveis de adaptação climática para reduzir a exposição e vulnerabilidade dos projectos de desenvolvimento das comunidades.",
+  "Aumentar a competitividade e sustentabilidade da agência.",
+];
+
 function Sobre() {
   return (
     <>
