@@ -4,13 +4,22 @@ import { HeroSlide } from "./HeroSlide";
 
 export type HeroSlideItem = { src: string; alt: string };
 
+export type HeroSlideConteudo = {
+  eyebrow?: string;
+  titulo: ReactNode;
+  descricao?: string;
+  acoes?: ReactNode;
+};
+
 export function HeroCarousel({
   slides,
   intervalo = 5000,
+  conteudos,
   children,
 }: {
   slides: HeroSlideItem[];
   intervalo?: number;
+  conteudos?: HeroSlideConteudo[];
   children?: ReactNode;
 }) {
   const [indice, setIndice] = useState(0);
@@ -56,7 +65,40 @@ export function HeroCarousel({
       />
 
       <div className="mx-auto flex h-full max-w-6xl items-center px-4 sm:px-6">
-        <div className="max-w-3xl">{children}</div>
+        {conteudos && conteudos.length > 0 ? (
+          <div className="w-full overflow-hidden">
+            <div
+              className="flex transition-transform duration-700 ease-out"
+              style={{ transform: `translateX(-${indice * 100}%)` }}
+            >
+              {slides.map((s, i) => {
+                const c = conteudos[i % conteudos.length];
+                return (
+                  <div key={s.src} className="w-full shrink-0 grow-0 basis-full">
+                    <div className="max-w-2xl" aria-hidden={i !== indice}>
+                      {c.eyebrow && (
+                        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-accent">
+                          {c.eyebrow}
+                        </p>
+                      )}
+                      <h1 className="mt-4 text-xl font-extrabold leading-tight tracking-tight sm:text-2xl lg:text-3xl">
+                        {c.titulo}
+                      </h1>
+                      {c.descricao && (
+                        <p className="mt-4 max-w-xl text-sm text-primary-foreground/90 sm:text-base">
+                          {c.descricao}
+                        </p>
+                      )}
+                      {c.acoes && <div className="mt-6 flex flex-wrap gap-3">{c.acoes}</div>}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        ) : (
+          <div className="max-w-3xl">{children}</div>
+        )}
       </div>
 
       {total > 1 && (

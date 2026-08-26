@@ -34,34 +34,81 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <>
-      <HeroCarousel slides={heroSlides}>
-        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-accent">
-          Província de Manica · Moçambique
-        </p>
-        <h1 className="mt-5 text-[2rem] font-extrabold leading-tight tracking-tight sm:text-[2.6rem] lg:text-[3.4rem]">
-          <span className="block">Agência de Desenvolvimento Económico</span>
-          <span className="block">da Província de Manica</span>
-          <span className="block">ao serviço das comunidades de Manica</span>
-        </h1>
-        <p className="mt-6 max-w-2xl text-base text-primary-foreground/90 sm:text-lg">
-          Promovemos o desenvolvimento económico sustentável, fortalecemos comunidades e apoiamos
-          iniciativas que geram oportunidades e meios de vida na Província de Manica.
-        </p>
-        <div className="mt-8 flex flex-wrap gap-3">
-          <Link
-            to="/sobre"
-            className="inline-flex items-center gap-2 rounded-md bg-accent px-5 py-3 text-sm font-semibold text-accent-foreground transition-colors hover:bg-accent/90"
-          >
-            Saiba mais <ArrowRight className="h-4 w-4" aria-hidden="true" />
-          </Link>
-          <Link
-            to="/contacto"
-            className="inline-flex items-center rounded-md border border-primary-foreground/40 px-5 py-3 text-sm font-semibold transition-colors hover:bg-primary-foreground/10"
-          >
-            Falar connosco
-          </Link>
-        </div>
-      </HeroCarousel>
+      <HeroCarousel
+        slides={heroSlides}
+        conteudos={[
+          {
+            eyebrow: "Província de Manica · Moçambique",
+            titulo: (
+              <>
+                <span className="block">Agência de Desenvolvimento Económico</span>
+                <span className="block">da Província de Manica</span>
+                <span className="block">ao serviço das comunidades de Manica</span>
+              </>
+            ),
+            descricao:
+              "Promovemos o desenvolvimento económico sustentável, fortalecemos comunidades e apoiamos iniciativas que geram oportunidades e meios de vida na Província de Manica.",
+            acoes: (
+              <>
+                <Link
+                  to="/sobre"
+                  className="inline-flex items-center gap-2 rounded-md bg-accent px-5 py-3 text-sm font-semibold text-accent-foreground transition-colors hover:bg-accent/90"
+                >
+                  Saiba mais <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </Link>
+                <Link
+                  to="/contacto"
+                  className="inline-flex items-center rounded-md border border-primary-foreground/40 px-5 py-3 text-sm font-semibold transition-colors hover:bg-primary-foreground/10"
+                >
+                  Falar connosco
+                </Link>
+              </>
+            ),
+          },
+          {
+            eyebrow: "Missão",
+            titulo: "A nossa missão",
+            descricao:
+              "Contribuir para o Desenvolvimento Económico Local sustentável e resiliente, através de advocacia e governação económica local e de serviços de desenvolvimento de negócio para a competitividade das micro, pequenas e médias empresas.",
+            acoes: (
+              <Link
+                to="/sobre"
+                className="inline-flex items-center gap-2 rounded-md bg-accent px-5 py-3 text-sm font-semibold text-accent-foreground transition-colors hover:bg-accent/90"
+              >
+                Saiba mais <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
+            ),
+          },
+          {
+            eyebrow: "Visão",
+            titulo: "A nossa visão",
+            descricao:
+              "Ser uma instituição acreditada ao nível nacional na provisão de serviços de qualidade para o desenvolvimento económico local.",
+            acoes: (
+              <Link
+                to="/sobre"
+                className="inline-flex items-center gap-2 rounded-md bg-accent px-5 py-3 text-sm font-semibold text-accent-foreground transition-colors hover:bg-accent/90"
+              >
+                Saiba mais <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
+            ),
+          },
+          {
+            eyebrow: "Objectivo Geral",
+            titulo: "O nosso objectivo geral",
+            descricao:
+              "Desenvolver e consolidar intervenções inovadoras e modelos de desenvolvimento que promovam o aumento da produção e produtividade e fortaleçam a economia local, preservando os ecossistemas das paisagens.",
+            acoes: (
+              <Link
+                to="/sobre"
+                className="inline-flex items-center gap-2 rounded-md bg-accent px-5 py-3 text-sm font-semibold text-accent-foreground transition-colors hover:bg-accent/90"
+              >
+                Saiba mais <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
+            ),
+          },
+        ]}
+      />
 
       <section id="missao" className="mx-auto max-w-6xl px-4 py-16 sm:px-6 md:py-20">
         <div className="grid gap-10 md:grid-cols-2">
