@@ -62,9 +62,163 @@ export const navegacao = [
   { to: "/projectos", label: "Projectos" },
   { to: "/noticias", label: "Notícias" },
   { to: "/publicacoes", label: "Publicações" },
+  { to: "/videos", label: "Vídeos" },
+  { to: "/relatorios", label: "Relatórios" },
   { to: "/galeria", label: "Galeria" },
   { to: "/contacto", label: "Contacto" },
 ] as const;
+
+export type Video = {
+  slug: string;
+  titulo: string;
+  youtubeId: string;
+  descricao: string;
+  data: string;
+  dataISO: string;
+  categoria: string;
+};
+
+export const videos: Video[] = [
+  {
+    slug: "adem-institucional",
+    titulo: "ADEM — Agência de Desenvolvimento Económico de Manica",
+    youtubeId: "dQw4w9WgXcQ",
+    descricao:
+      "Vídeo institucional que apresenta a missão, as áreas de actuação e o impacto da ADEM junto das comunidades da província de Manica.",
+    data: "15 de Junho de 2026",
+    dataISO: "2026-06-15",
+    categoria: "Institucional",
+  },
+  {
+    slug: "cadeias-de-valor-agricolas",
+    titulo: "Cadeias de valor agrícolas em Manica",
+    youtubeId: "dQw4w9WgXcQ",
+    descricao:
+      "Reportagem sobre o trabalho da ADEM com associações de produtores de milho e hortícolas, da produção à comercialização.",
+    data: "2 de Maio de 2026",
+    dataISO: "2026-05-02",
+    categoria: "Projectos",
+  },
+  {
+    slug: "formacao-mpme",
+    titulo: "Formação de pequenas empresas em Gondola",
+    youtubeId: "dQw4w9WgXcQ",
+    descricao:
+      "Acompanhamento de um ciclo de formação em gestão e acesso a crédito para micro, pequenas e médias empresas.",
+    data: "20 de Março de 2026",
+    dataISO: "2026-03-20",
+    categoria: "Formação",
+  },
+  {
+    slug: "mineracao-responsavel",
+    titulo: "Mineração artesanal responsável",
+    youtubeId: "dQw4w9WgXcQ",
+    descricao:
+      "Documentário curto sobre a organização de garimpeiros em associações e a introdução de técnicas sem mercúrio.",
+    data: "11 de Fevereiro de 2026",
+    dataISO: "2026-02-11",
+    categoria: "Recursos naturais",
+  },
+  {
+    slug: "grupos-de-poupanca",
+    titulo: "Grupos de poupança comunitária",
+    youtubeId: "dQw4w9WgXcQ",
+    descricao:
+      "Testemunhos de mulheres que integram grupos de poupança e crédito rotativo apoiados pela ADEM.",
+    data: "8 de Janeiro de 2026",
+    dataISO: "2026-01-08",
+    categoria: "Comunidade",
+  },
+  {
+    slug: "turismo-comunitario",
+    titulo: "Turismo comunitário em Chimanimani",
+    youtubeId: "dQw4w9WgXcQ",
+    descricao:
+      "Circuitos turísticos e artesanato local promovidos pela ADEM na região de Chimanimani.",
+    data: "5 de Dezembro de 2025",
+    dataISO: "2025-12-05",
+    categoria: "Turismo",
+  },
+];
+
+export type Relatorio = {
+  slug: string;
+  titulo: string;
+  ano: string;
+  tipo: "Relatório Anual" | "Relatório de Actividades" | "Plano Estratégico" | "Auditoria";
+  resumo: string;
+  descricao: string;
+  estado: "Disponível" | "Em breve";
+  paginaDestaque?: string;
+};
+
+export const relatorios: Relatorio[] = [
+  {
+    slug: "relatorio-anual-2025",
+    titulo: "Relatório Anual de Actividades 2025",
+    ano: "2025",
+    tipo: "Relatório Anual",
+    resumo:
+      "Balanço das actividades, resultados alcançados e demonstrações financeiras da ADEM no exercício de 2025.",
+    descricao:
+      "O Relatório Anual de Actividades 2025 apresenta os principais resultados da ADEM nas suas áreas de intervenção, incluindo indicadores de impacto, parcerias estabelecidas,execução financeira e perspectivas para o exercício seguinte.",
+    estado: "Disponível",
+  },
+  {
+    slug: "relatorio-anual-2024",
+    titulo: "Relatório Anual de Actividades 2024",
+    ano: "2024",
+    tipo: "Relatório Anual",
+    resumo:
+      "Síntese das actividades e resultados da ADEM em 2024, com enfoque em cadeias de valor e MPME.",
+    descricao:
+      "Documento de prestação de contas que detalha os projectos implementados, o número de beneficiários, a execução orçamental e as recomendações dos parceiros institucionais.",
+    estado: "Disponível",
+  },
+  {
+    slug: "plano-estrategico-2024-2028",
+    titulo: "Plano Estratégico 2024—2028",
+    ano: "2024",
+    tipo: "Plano Estratégico",
+    resumo:
+      "Prioridades, objectivos e indicadores da agência para o ciclo estratégico de cinco anos.",
+    descricao:
+      "O Plano Estratégico define a visão e missão da ADEM, as áreas prioritárias, os objectivos estratégicos e os indicadores de desempenho para o período 2024—2028.",
+    estado: "Disponível",
+  },
+  {
+    slug: "auditoria-2024",
+    titulo: "Relatório de Auditoria Externa 2024",
+    ano: "2024",
+    tipo: "Auditoria",
+    resumo:
+      "Parecer da auditoria externa sobre as demonstrações financeiras da ADEM referentes a 2024.",
+    descricao:
+      "Relatório de auditoria independente que certifica a fiabilidade das demonstrações financeiras e a conformidade dos procedimentos administrativos da agência.",
+    estado: "Disponível",
+  },
+  {
+    slug: "relatorio-anual-2023",
+    titulo: "Relatório Anual de Actividades 2023",
+    ano: "2023",
+    tipo: "Relatório Anual",
+    resumo:
+      "Balanço das actividades e resultados da ADEM em 2023, com destaque para turismo e mercados rurais.",
+    descricao:
+      "Apresenta a execução dos projectos concluídos e em curso, os indicadores de impacto e os desafios encontrados no terreno durante o exercício de 2023.",
+    estado: "Disponível",
+  },
+  {
+    slug: "relatorio-anual-2026",
+    titulo: "Relatório Anual de Actividades 2026",
+    ano: "2026",
+    tipo: "Relatório Anual",
+    resumo: "Balanço das actividades e resultados da ADEM no exercício de 2026.",
+    descricao:
+      "O relatório anual de 2026 estará disponível após o encerramento do exercício, prevendo-se a publicação no primeiro trimestre de 2027.",
+    estado: "Em breve",
+  },
+];
 
 export const impacto = [
   { valor: "25+", rotulo: "Anos ao serviço de Manica" },
