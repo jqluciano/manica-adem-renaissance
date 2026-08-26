@@ -15,7 +15,9 @@ import { Route as GaleriaRouteImport } from './routes/galeria'
 import { Route as NoticiasRouteImport } from './routes/noticias'
 import { Route as ProjectosRouteImport } from './routes/projectos'
 import { Route as PublicacoesRouteImport } from './routes/publicacoes'
+import { Route as RelatoriosRouteImport } from './routes/relatorios'
 import { Route as SobreRouteImport } from './routes/sobre'
+import { Route as VideosRouteImport } from './routes/videos'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -47,9 +49,19 @@ const PublicacoesRoute = PublicacoesRouteImport.update({
   path: '/publicacoes',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RelatoriosRoute = RelatoriosRouteImport.update({
+  id: '/relatorios',
+  path: '/relatorios',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SobreRoute = SobreRouteImport.update({
   id: '/sobre',
   path: '/sobre',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VideosRoute = VideosRouteImport.update({
+  id: '/videos',
+  path: '/videos',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -60,7 +72,9 @@ export interface FileRoutesByFullPath {
   '/noticias': typeof NoticiasRoute
   '/projectos': typeof ProjectosRoute
   '/publicacoes': typeof PublicacoesRoute
+  '/relatorios': typeof RelatoriosRoute
   '/sobre': typeof SobreRoute
+  '/videos': typeof VideosRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -69,7 +83,9 @@ export interface FileRoutesByTo {
   '/noticias': typeof NoticiasRoute
   '/projectos': typeof ProjectosRoute
   '/publicacoes': typeof PublicacoesRoute
+  '/relatorios': typeof RelatoriosRoute
   '/sobre': typeof SobreRoute
+  '/videos': typeof VideosRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -79,7 +95,9 @@ export interface FileRoutesById {
   '/noticias': typeof NoticiasRoute
   '/projectos': typeof ProjectosRoute
   '/publicacoes': typeof PublicacoesRoute
+  '/relatorios': typeof RelatoriosRoute
   '/sobre': typeof SobreRoute
+  '/videos': typeof VideosRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -90,7 +108,9 @@ export interface FileRouteTypes {
     | '/noticias'
     | '/projectos'
     | '/publicacoes'
+    | '/relatorios'
     | '/sobre'
+    | '/videos'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -99,7 +119,9 @@ export interface FileRouteTypes {
     | '/noticias'
     | '/projectos'
     | '/publicacoes'
+    | '/relatorios'
     | '/sobre'
+    | '/videos'
   id:
     | '__root__'
     | '/'
@@ -108,7 +130,9 @@ export interface FileRouteTypes {
     | '/noticias'
     | '/projectos'
     | '/publicacoes'
+    | '/relatorios'
     | '/sobre'
+    | '/videos'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -118,7 +142,9 @@ export interface RootRouteChildren {
   NoticiasRoute: typeof NoticiasRoute
   ProjectosRoute: typeof ProjectosRoute
   PublicacoesRoute: typeof PublicacoesRoute
+  RelatoriosRoute: typeof RelatoriosRoute
   SobreRoute: typeof SobreRoute
+  VideosRoute: typeof VideosRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -165,11 +191,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PublicacoesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/relatorios': {
+      id: '/relatorios'
+      path: '/relatorios'
+      fullPath: '/relatorios'
+      preLoaderRoute: typeof RelatoriosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sobre': {
       id: '/sobre'
       path: '/sobre'
       fullPath: '/sobre'
       preLoaderRoute: typeof SobreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/videos': {
+      id: '/videos'
+      path: '/videos'
+      fullPath: '/videos'
+      preLoaderRoute: typeof VideosRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -182,7 +222,9 @@ const rootRouteChildren: RootRouteChildren = {
   NoticiasRoute: NoticiasRoute,
   ProjectosRoute: ProjectosRoute,
   PublicacoesRoute: PublicacoesRoute,
+  RelatoriosRoute: RelatoriosRoute,
   SobreRoute: SobreRoute,
+  VideosRoute: VideosRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
