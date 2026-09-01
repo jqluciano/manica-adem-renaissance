@@ -496,3 +496,24 @@ export const galeria = [
   ...imagensReais.map((i) => ({ src: i.src, alt: i.alt })),
   ...galeriaBase,
 ];
+
+export type CategoriaPublicacao = { slug: string; label: string; tipos: string[] };
+
+/** Subcategorias apresentadas no submenu "Publicações". */
+export const categoriasPublicacoes: CategoriaPublicacao[] = [
+  { slug: "relatorios", label: "Relatórios", tipos: ["Relatório", "Relatório Anual", "Relatório de Actividades", "Auditoria"] },
+  { slug: "projectos", label: "Projectos", tipos: ["Projecto", "Projectos"] },
+  { slug: "apresentacoes", label: "Apresentações", tipos: ["Apresentação", "Apresentações"] },
+  { slug: "estudos", label: "Estudos", tipos: ["Estudo", "Estudos", "Estratégia", "Plano Estratégico"] },
+  { slug: "discursos", label: "Discursos", tipos: ["Discurso", "Discursos"] },
+  { slug: "livros", label: "Livros", tipos: ["Livro", "Livros", "Manual"] },
+  { slug: "outros", label: "Outros documentos", tipos: [] },
+];
+
+export function categoriaDaPublicacao(tipo: string): string {
+  const t = (tipo ?? "").trim().toLowerCase();
+  const encontrada = categoriasPublicacoes.find((c) =>
+    c.tipos.some((x) => x.toLowerCase() === t),
+  );
+  return encontrada?.slug ?? "outros";
+}
