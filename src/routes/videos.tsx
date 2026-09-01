@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PlayCircle } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
-import { videos } from "@/data/site";
+import { useVideos } from "@/data/conteudo";
 
 export const Route = createFileRoute("/videos")({
   head: () => ({
@@ -23,6 +23,7 @@ export const Route = createFileRoute("/videos")({
 });
 
 function Videos() {
+  const videos = useVideos();
   const destaque = videos[0]!;
   const restantes = videos.slice(1);
 

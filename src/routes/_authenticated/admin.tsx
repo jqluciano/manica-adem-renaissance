@@ -29,10 +29,14 @@ function AdminLayout() {
     navigate({ to: "/auth", replace: true });
   }
 
-  const ligacoes = [
+  const ligacoes: { to: string; label: string; exact?: boolean; params?: { recurso: string } }[] = [
     { to: "/admin", label: "Painel", exact: true },
     { to: "/admin/utilizadores", label: "Utilizadores" },
-    ...Object.values(recursos).map((r) => ({ to: `/admin/${r.tabela}`, label: r.titulo })),
+    ...Object.values(recursos).map((r) => ({
+      to: "/admin/$recurso",
+      label: r.titulo,
+      params: { recurso: r.tabela },
+    })),
   ];
 
   return (
@@ -68,9 +72,10 @@ function AdminLayout() {
           <nav aria-label="Navegação da administração">
             <ul className="flex flex-wrap gap-1 lg:flex-col">
               {ligacoes.map((l) => (
-                <li key={l.to}>
+                <li key={l.label}>
                   <Link
                     to={l.to}
+                    {...(l.params ? { params: l.params } : {})}
                     activeOptions={{ exact: Boolean(l.exact) }}
                     activeProps={{ className: "bg-secondary text-secondary-foreground" }}
                     className="block rounded-md px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-secondary"

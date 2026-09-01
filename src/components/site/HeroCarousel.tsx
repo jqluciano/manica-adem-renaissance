@@ -73,6 +73,7 @@ export function HeroCarousel({
             >
               {slides.map((s, i) => {
                 const c = conteudos[i % conteudos.length];
+                if (!c) return null;
                 return (
                   <div key={s.src} className="w-full shrink-0 grow-0 basis-full">
                     <div className="max-w-2xl" aria-hidden={i !== indice}>

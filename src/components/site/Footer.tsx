@@ -72,11 +72,17 @@ export function Footer() {
       </div>
 
       <div className="border-t border-primary-foreground/15">
-        <p className="mx-auto max-w-6xl px-4 py-5 text-xs text-primary-foreground/70 sm:px-6">
-          © {new Date().getFullYear()} ADEM — Agência de Desenvolvimento Económico Província de Manica. Todos
-          os direitos reservados.
-        </p>
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-2 px-4 py-5 text-xs text-primary-foreground/70 sm:px-6">
+          <p>
+            © {new Date().getFullYear()} ADEM — Agência de Desenvolvimento Económico Província de Manica.
+            Todos os direitos reservados.
+          </p>
+          <Link to="/auth" className="hover:text-accent">
+            Área reservada
+          </Link>
+        </div>
       </div>
+
     </footer>
   );
 }

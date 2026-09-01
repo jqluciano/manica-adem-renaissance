@@ -28,7 +28,8 @@ function Painel() {
         {Object.values(recursos).map((r) => (
           <li key={r.tabela}>
             <Link
-              to={`/admin/${r.tabela}`}
+              to="/admin/$recurso"
+              params={{ recurso: r.tabela }}
               className="block h-full rounded-xl border border-border bg-card p-5 transition-colors hover:border-primary"
             >
               <h2 className="font-semibold text-foreground">{r.titulo}</h2>

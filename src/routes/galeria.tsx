@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
-import { galeria } from "@/data/site";
+import { useGaleria } from "@/data/conteudo";
 
 export const Route = createFileRoute("/galeria")({
   head: () => ({
@@ -22,6 +22,7 @@ export const Route = createFileRoute("/galeria")({
 });
 
 function Galeria() {
+  const galeria = useGaleria();
   return (
     <>
       <PageHero

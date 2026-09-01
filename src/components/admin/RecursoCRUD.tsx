@@ -36,10 +36,10 @@ export function RecursoCRUD({ recurso }: { recurso: Recurso }) {
         payload["slug"] = gerarSlug(String(payload["titulo"] ?? "item"));
       }
       if (editandoId) {
-        const { error } = await supabase.from(recurso.tabela).update(payload).eq("id", editandoId);
+        const { error } = await supabase.from(recurso.tabela).update(payload as never).eq("id", editandoId);
         if (error) throw error;
       } else {
-        const { error } = await supabase.from(recurso.tabela).insert(payload);
+        const { error } = await supabase.from(recurso.tabela).insert(payload as never);
         if (error) throw error;
       }
     },
