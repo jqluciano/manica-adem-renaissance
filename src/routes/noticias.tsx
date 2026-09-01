@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
-import { noticias } from "@/data/site";
+import { useNoticias } from "@/data/conteudo";
 
 export const Route = createFileRoute("/noticias")({
   head: () => ({
@@ -22,6 +22,7 @@ export const Route = createFileRoute("/noticias")({
 });
 
 function Noticias() {
+  const noticias = useNoticias();
   const destaque = noticias[0]!;
   const restantes = noticias.slice(1);
 

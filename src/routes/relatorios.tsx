@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { FileText, Download } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
-import { contacto, relatorios } from "@/data/site";
+import { contacto } from "@/data/site";
+import { useRelatorios } from "@/data/conteudo";
 
 export const Route = createFileRoute("/relatorios")({
   head: () => ({
@@ -23,6 +24,7 @@ export const Route = createFileRoute("/relatorios")({
 });
 
 function Relatorios() {
+  const relatorios = useRelatorios();
   const disponiveis = relatorios.filter((r) => r.estado === "Disponível");
   const emBreve = relatorios.filter((r) => r.estado === "Em breve");
 

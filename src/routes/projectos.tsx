@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
-import { projectos } from "@/data/site";
+import { useProjectos } from "@/data/conteudo";
 
 export const Route = createFileRoute("/projectos")({
   head: () => ({
@@ -22,6 +22,7 @@ export const Route = createFileRoute("/projectos")({
 });
 
 function Projectos() {
+  const projectos = useProjectos();
   return (
     <>
       <PageHero
