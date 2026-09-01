@@ -6,9 +6,8 @@ import {
   heroSlides,
   images,
   impacto,
-  noticias,
-  projectos,
 } from "@/data/site";
+import { useNoticias, useProjectos } from "@/data/conteudo";
 import { HeroCarousel } from "@/components/site/HeroCarousel";
 
 export const Route = createFileRoute("/")({
@@ -32,6 +31,9 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
+  const projectos = useProjectos();
+  const noticias = useNoticias();
+
   return (
     <>
       <HeroCarousel
