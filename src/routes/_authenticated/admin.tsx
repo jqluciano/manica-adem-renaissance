@@ -75,7 +75,7 @@ function AdminLayout() {
                 <li key={l.label}>
                   <Link
                     to={l.to}
-                    params={l.params}
+                    {...(l.params ? { params: l.params } : {})}
                     activeOptions={{ exact: Boolean(l.exact) }}
                     activeProps={{ className: "bg-secondary text-secondary-foreground" }}
                     className="block rounded-md px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-secondary"
