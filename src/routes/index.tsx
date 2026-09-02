@@ -188,7 +188,8 @@ function Index() {
           <div className="flex flex-wrap items-end justify-between gap-4">
             <h2 className="text-2xl font-bold text-foreground sm:text-3xl">Projectos em destaque</h2>
             <Link
-              to="/projectos"
+              to="/publicacoes"
+              search={{ categoria: "projectos" }}
               className="text-sm font-semibold text-brand hover:underline"
             >
               Ver todos os projectos
