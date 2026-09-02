@@ -15,9 +15,7 @@ import { Route as AuthRouteImport } from './routes/auth'
 import { Route as ContactoRouteImport } from './routes/contacto'
 import { Route as GaleriaRouteImport } from './routes/galeria'
 import { Route as NoticiasRouteImport } from './routes/noticias'
-import { Route as ProjectosRouteImport } from './routes/projectos'
 import { Route as PublicacoesRouteImport } from './routes/publicacoes'
-import { Route as RelatoriosRouteImport } from './routes/relatorios'
 import { Route as SobreRouteImport } from './routes/sobre'
 import { Route as VideosRouteImport } from './routes/videos'
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
@@ -54,19 +52,9 @@ const NoticiasRoute = NoticiasRouteImport.update({
   path: '/noticias',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ProjectosRoute = ProjectosRouteImport.update({
-  id: '/projectos',
-  path: '/projectos',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const PublicacoesRoute = PublicacoesRouteImport.update({
   id: '/publicacoes',
   path: '/publicacoes',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const RelatoriosRoute = RelatoriosRouteImport.update({
-  id: '/relatorios',
-  path: '/relatorios',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SobreRoute = SobreRouteImport.update({
@@ -108,9 +96,7 @@ export interface FileRoutesByFullPath {
   '/contacto': typeof ContactoRoute
   '/galeria': typeof GaleriaRoute
   '/noticias': typeof NoticiasRoute
-  '/projectos': typeof ProjectosRoute
   '/publicacoes': typeof PublicacoesRoute
-  '/relatorios': typeof RelatoriosRoute
   '/sobre': typeof SobreRoute
   '/videos': typeof VideosRoute
   '/admin': typeof AuthenticatedAdminRouteWithChildren
@@ -124,9 +110,7 @@ export interface FileRoutesByTo {
   '/contacto': typeof ContactoRoute
   '/galeria': typeof GaleriaRoute
   '/noticias': typeof NoticiasRoute
-  '/projectos': typeof ProjectosRoute
   '/publicacoes': typeof PublicacoesRoute
-  '/relatorios': typeof RelatoriosRoute
   '/sobre': typeof SobreRoute
   '/videos': typeof VideosRoute
   '/admin/$recurso': typeof AuthenticatedAdminRecursoRoute
@@ -141,9 +125,7 @@ export interface FileRoutesById {
   '/contacto': typeof ContactoRoute
   '/galeria': typeof GaleriaRoute
   '/noticias': typeof NoticiasRoute
-  '/projectos': typeof ProjectosRoute
   '/publicacoes': typeof PublicacoesRoute
-  '/relatorios': typeof RelatoriosRoute
   '/sobre': typeof SobreRoute
   '/videos': typeof VideosRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRouteWithChildren
@@ -159,9 +141,7 @@ export interface FileRouteTypes {
     | '/contacto'
     | '/galeria'
     | '/noticias'
-    | '/projectos'
     | '/publicacoes'
-    | '/relatorios'
     | '/sobre'
     | '/videos'
     | '/admin'
@@ -175,9 +155,7 @@ export interface FileRouteTypes {
     | '/contacto'
     | '/galeria'
     | '/noticias'
-    | '/projectos'
     | '/publicacoes'
-    | '/relatorios'
     | '/sobre'
     | '/videos'
     | '/admin/$recurso'
@@ -191,9 +169,7 @@ export interface FileRouteTypes {
     | '/contacto'
     | '/galeria'
     | '/noticias'
-    | '/projectos'
     | '/publicacoes'
-    | '/relatorios'
     | '/sobre'
     | '/videos'
     | '/_authenticated/admin'
@@ -209,9 +185,7 @@ export interface RootRouteChildren {
   ContactoRoute: typeof ContactoRoute
   GaleriaRoute: typeof GaleriaRoute
   NoticiasRoute: typeof NoticiasRoute
-  ProjectosRoute: typeof ProjectosRoute
   PublicacoesRoute: typeof PublicacoesRoute
-  RelatoriosRoute: typeof RelatoriosRoute
   SobreRoute: typeof SobreRoute
   VideosRoute: typeof VideosRoute
 }
@@ -260,25 +234,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NoticiasRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/projectos': {
-      id: '/projectos'
-      path: '/projectos'
-      fullPath: '/projectos'
-      preLoaderRoute: typeof ProjectosRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/publicacoes': {
       id: '/publicacoes'
       path: '/publicacoes'
       fullPath: '/publicacoes'
       preLoaderRoute: typeof PublicacoesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/relatorios': {
-      id: '/relatorios'
-      path: '/relatorios'
-      fullPath: '/relatorios'
-      preLoaderRoute: typeof RelatoriosRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sobre': {
@@ -359,9 +319,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactoRoute: ContactoRoute,
   GaleriaRoute: GaleriaRoute,
   NoticiasRoute: NoticiasRoute,
-  ProjectosRoute: ProjectosRoute,
   PublicacoesRoute: PublicacoesRoute,
-  RelatoriosRoute: RelatoriosRoute,
   SobreRoute: SobreRoute,
   VideosRoute: VideosRoute,
 }

@@ -1,8 +1,71 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { ChevronDown, Menu, Plus, X } from "lucide-react";
-import { categoriasPublicacoes, navegacao } from "@/data/site";
+import {
+  ChevronDown,
+  Facebook,
+  Globe,
+  Instagram,
+  Linkedin,
+  Mail,
+  Menu,
+  Phone,
+  Plus,
+  X,
+  Youtube,
+} from "lucide-react";
+import { categoriasPublicacoes, contacto, navegacao } from "@/data/site";
 import ademLogo from "@/assets/adem-logo.png.asset.json";
+
+const iconesRedes: Record<string, typeof Globe> = {
+  Facebook,
+  Instagram,
+  LinkedIn: Linkedin,
+  YouTube: Youtube,
+};
+
+function BarraTopo() {
+  return (
+    <div className="bg-primary text-primary-foreground">
+      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-6 gap-y-2 px-4 py-2 text-xs sm:px-6">
+        <ul className="flex items-center gap-1">
+          {contacto.redes.map((rede) => {
+            const Icone = iconesRedes[rede.nome] ?? Globe;
+            return (
+              <li key={rede.nome}>
+                <a
+                  href={rede.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={rede.nome}
+                  className="inline-flex h-8 w-8 items-center justify-center rounded-md transition-colors hover:bg-primary-foreground/15"
+                >
+                  <Icone className="h-4 w-4 sm:h-[18px] sm:w-[18px]" aria-hidden="true" />
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+
+        <div className="flex flex-wrap items-center gap-x-5 gap-y-1">
+          <a
+            href={`tel:${contacto.telefone.replace(/\s/g, "")}`}
+            className="inline-flex items-center gap-2 transition-colors hover:text-accent"
+          >
+            <Phone className="h-4 w-4 text-accent" aria-hidden="true" />
+            <span className="font-medium">{contacto.telefone}</span>
+          </a>
+          <a
+            href={`mailto:${contacto.email}`}
+            className="inline-flex items-center gap-2 transition-colors hover:text-accent"
+          >
+            <Mail className="h-4 w-4 text-accent" aria-hidden="true" />
+            <span className="font-medium break-all">{contacto.email}</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export function Header() {
   const [aberto, setAberto] = useState(false);
@@ -21,6 +84,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
+      <BarraTopo />
       <div className="mx-auto grid h-20 max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 sm:px-6">
         <Link to="/" className="flex min-w-0 items-center" onClick={() => setAberto(false)}>
           <img
