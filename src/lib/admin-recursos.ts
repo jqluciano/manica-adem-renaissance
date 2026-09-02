@@ -74,7 +74,7 @@ export const recursos: Record<Recurso["tabela"], Recurso> = {
         nome: "tipo",
         rotulo: "Categoria",
         tipo: "select",
-        opcoes: ["Relatório", "Projecto", "Apresentação", "Estudo", "Discurso", "Livro", "Outro documento"],
+        opcoes: ["Relatório", "Projecto", "Apresentação", "Discurso", "Outro documento"],
         ajuda: "Define em que submenu de Publicações o documento aparece.",
         coluna: true,
       },
