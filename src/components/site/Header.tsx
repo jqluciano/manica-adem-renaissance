@@ -43,6 +43,7 @@ export function Header() {
                 >
                   <Link
                     to="/publicacoes"
+                    search={{ categoria: undefined }}
                     aria-haspopup="true"
                     aria-expanded={submenu}
                     activeProps={{ className: "bg-secondary text-secondary-foreground" }}
@@ -112,6 +113,7 @@ export function Header() {
                     <div className="flex items-center justify-between gap-2">
                       <Link
                         to="/publicacoes"
+                        search={{ categoria: undefined }}
                         activeProps={{ className: "text-primary" }}
                         onClick={() => setAberto(false)}
                         className="block flex-1 rounded-md px-2 py-3 text-base font-medium text-foreground/90 transition-colors hover:bg-secondary"

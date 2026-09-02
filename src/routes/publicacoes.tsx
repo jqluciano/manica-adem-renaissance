@@ -6,7 +6,7 @@ import { usePublicacoes } from "@/data/conteudo";
 
 export const Route = createFileRoute("/publicacoes")({
   validateSearch: (search: Record<string, unknown>) => ({
-    categoria: typeof search.categoria === "string" ? search.categoria : undefined,
+    categoria: typeof search["categoria"] === "string" ? (search["categoria"] as string) : undefined,
   }),
   head: () => ({
     meta: [
