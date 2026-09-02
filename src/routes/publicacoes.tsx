@@ -1,10 +1,13 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { FileText } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
-import { contacto } from "@/data/site";
+import { categoriaDaPublicacao, categoriasPublicacoes, contacto } from "@/data/site";
 import { usePublicacoes } from "@/data/conteudo";
 
 export const Route = createFileRoute("/publicacoes")({
+  validateSearch: (search: Record<string, unknown>) => ({
+    categoria: typeof search.categoria === "string" ? search.categoria : undefined,
+  }),
   head: () => ({
     meta: [
       { title: "Publicações — ADEM Manica" },
