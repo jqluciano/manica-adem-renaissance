@@ -1,10 +1,13 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { FileText } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
-import { contacto } from "@/data/site";
+import { categoriaDaPublicacao, categoriasPublicacoes, contacto } from "@/data/site";
 import { usePublicacoes } from "@/data/conteudo";
 
 export const Route = createFileRoute("/publicacoes")({
+  validateSearch: (search: Record<string, unknown>) => ({
+    categoria: typeof search["categoria"] === "string" ? (search["categoria"] as string) : undefined,
+  }),
   head: () => ({
     meta: [
       { title: "Publicações — ADEM Manica" },
@@ -24,16 +27,54 @@ export const Route = createFileRoute("/publicacoes")({
 });
 
 function Publicacoes() {
-  const publicacoes = usePublicacoes();
+  const todas = usePublicacoes();
+  const { categoria } = Route.useSearch();
+  const activa = categoriasPublicacoes.find((c) => c.slug === categoria);
+  const publicacoes = activa
+    ? todas.filter((p) => categoriaDaPublicacao(p.tipo) === activa.slug)
+    : todas;
+
   return (
     <>
       <PageHero
         eyebrow="Conhecimento"
-        titulo="Publicações"
+        titulo={activa ? `Publicações — ${activa.label}` : "Publicações"}
         descricao="Relatórios, estudos e manuais produzidos pela ADEM e pelos seus parceiros. Para solicitar uma cópia, contacte-nos."
       />
 
+      <section className="mx-auto max-w-6xl px-4 pt-10 sm:px-6">
+        <nav aria-label="Categorias de publicações">
+          <ul className="flex flex-wrap gap-2">
+            <li>
+              <Link
+                to="/publicacoes"
+                search={{ categoria: undefined }}
+                className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors ${!activa ? "border-primary bg-primary text-primary-foreground" : "border-border text-foreground/80 hover:bg-secondary"}`}
+              >
+                Todas
+              </Link>
+            </li>
+            {categoriasPublicacoes.map((cat) => (
+              <li key={cat.slug}>
+                <Link
+                  to="/publicacoes"
+                  search={{ categoria: cat.slug }}
+                  className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors ${activa?.slug === cat.slug ? "border-primary bg-primary text-primary-foreground" : "border-border text-foreground/80 hover:bg-secondary"}`}
+                >
+                  {cat.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </section>
+
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+        {publicacoes.length === 0 && (
+          <p className="text-sm text-muted-foreground">
+            Ainda não há documentos publicados nesta categoria.
+          </p>
+        )}
         <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {publicacoes.map((pub) => (
             <li
