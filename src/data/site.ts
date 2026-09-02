@@ -230,34 +230,65 @@ export const areas = [
     titulo: "Agricultura e cadeias de valor",
     texto:
       "Assistência técnica a produtores, ligação ao mercado e desenvolvimento de cadeias de valor como milho, hortícolas, soja e sésamo.",
+    detalhes: [
+      "Assistência técnica e extensão agrária a associações e produtores individuais.",
+      "Ligação a compradores, agro-processadores e mercados formais.",
+      "Introdução de boas práticas de produção, pós-colheita e armazenamento.",
+    ],
   },
   {
     titulo: "Desenvolvimento empresarial (MPME)",
     texto:
       "Formação em gestão, planos de negócio, formalização e acesso a financiamento para micro, pequenas e médias empresas.",
+    detalhes: [
+      "Formação em gestão, contabilidade simplificada e marketing.",
+      "Apoio à elaboração de planos de negócio e à formalização das empresas.",
+      "Intermediação com instituições financeiras e produtos de crédito adequados.",
+    ],
   },
   {
     titulo: "Recursos naturais e Salvaguarda",
     texto:
       "Apoio à mineração artesanal responsável, gestão comunitária de recursos e mitigação de impactos ambientais.",
+    detalhes: [
+      "Promoção de práticas de mineração artesanal mais seguras e responsáveis.",
+      "Gestão comunitária de recursos naturais e planos de salvaguarda.",
+      "Mitigação de impactos ambientais e sociais dos projectos.",
+    ],
   },
 
   {
     titulo: "Turismo e economia local",
     texto:
       "Valorização do potencial turístico de Manica, promoção do artesanato e dinamização de mercados locais.",
+    detalhes: [
+      "Valorização de destinos e rotas turísticas da província.",
+      "Promoção do artesanato e de produtos locais com identidade própria.",
+      "Dinamização de feiras e mercados que ligam produtores e visitantes.",
+    ],
   },
   {
     titulo: "Género e inclusão",
     texto:
       "Programas dirigidos a mulheres e jovens, com foco em liderança económica, poupança e crédito rotativo.",
+    detalhes: [
+      "Grupos de poupança e crédito rotativo liderados por mulheres.",
+      "Capacitação de jovens em empreendedorismo e competências técnicas.",
+      "Integração de critérios de género e inclusão em todos os projectos.",
+    ],
   },
   {
     titulo: "Ambiente e resiliência climática",
     texto:
       "Agricultura de conservação, agro-florestas e preparação das comunidades para eventos climáticos extremos.",
+    detalhes: [
+      "Agricultura de conservação e sistemas agro-florestais.",
+      "Preparação comunitária para cheias, ciclones e secas.",
+      "Recuperação de solos e gestão sustentável da água.",
+    ],
   },
 ];
+
 
 export type Projecto = {
   slug: string;

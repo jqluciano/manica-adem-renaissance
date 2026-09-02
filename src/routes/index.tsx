@@ -175,12 +175,26 @@ function Index() {
               key={area.titulo}
               className="rounded-xl border border-border bg-card p-6 transition-shadow hover:shadow-md"
             >
-              <span className="block h-1 w-10 rounded-full bg-accent" aria-hidden="true" />
-              <h3 className="mt-4 font-semibold text-foreground">{area.titulo}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{area.texto}</p>
+              <CartaoExpansivel
+                detalhe={
+                  <ul className="space-y-2 border-t border-border pt-3 text-sm text-muted-foreground">
+                    {area.detalhes.map((detalhe) => (
+                      <li key={detalhe} className="flex gap-2">
+                        <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true" />
+                        <span>{detalhe}</span>
+                      </li>
+                    ))}
+                  </ul>
+                }
+              >
+                <span className="block h-1 w-10 rounded-full bg-accent" aria-hidden="true" />
+                <h3 className="mt-4 font-semibold text-foreground">{area.titulo}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{area.texto}</p>
+              </CartaoExpansivel>
             </li>
           ))}
         </ul>
+
       </section>
 
       <section id="projectos" className="bg-secondary/60 py-16 md:py-20">
