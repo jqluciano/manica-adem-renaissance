@@ -70,7 +70,14 @@ export const recursos: Record<Recurso["tabela"], Recurso> = {
     ordenarPor: "ordem",
     campos: [
       { nome: "titulo", rotulo: "Título", tipo: "text", obrigatorio: true, coluna: true },
-      { nome: "tipo", rotulo: "Tipo", tipo: "text", coluna: true },
+      {
+        nome: "tipo",
+        rotulo: "Categoria",
+        tipo: "select",
+        opcoes: ["Relatório", "Projecto", "Apresentação", "Estudo", "Discurso", "Livro", "Outro documento"],
+        ajuda: "Define em que submenu de Publicações o documento aparece.",
+        coluna: true,
+      },
       { nome: "ano", rotulo: "Ano", tipo: "text", coluna: true },
       { nome: "descricao", rotulo: "Descrição", tipo: "textarea" },
       { nome: "ficheiro_url", rotulo: "Ficheiro (PDF)", tipo: "imagem", ajuda: "Aceita PDF ou imagem." },
