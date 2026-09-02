@@ -59,11 +59,9 @@ export const contacto = {
 export const navegacao = [
   { to: "/", label: "Início" },
   { to: "/sobre", label: "Sobre nós" },
-  { to: "/projectos", label: "Projectos" },
   { to: "/noticias", label: "Notícias" },
   { to: "/publicacoes", label: "Publicações" },
   { to: "/videos", label: "Vídeos" },
-  { to: "/relatorios", label: "Relatórios" },
   { to: "/galeria", label: "Galeria" },
   { to: "/contacto", label: "Contacto" },
 ] as const;
@@ -504,9 +502,7 @@ export const categoriasPublicacoes: CategoriaPublicacao[] = [
   { slug: "relatorios", label: "Relatórios", tipos: ["Relatório", "Relatório Anual", "Relatório de Actividades", "Auditoria"] },
   { slug: "projectos", label: "Projectos", tipos: ["Projecto", "Projectos"] },
   { slug: "apresentacoes", label: "Apresentações", tipos: ["Apresentação", "Apresentações"] },
-  { slug: "estudos", label: "Estudos", tipos: ["Estudo", "Estudos", "Estratégia", "Plano Estratégico"] },
   { slug: "discursos", label: "Discursos", tipos: ["Discurso", "Discursos"] },
-  { slug: "livros", label: "Livros", tipos: ["Livro", "Livros", "Manual"] },
   { slug: "outros", label: "Outros documentos", tipos: [] },
 ];
 
