@@ -56,6 +56,15 @@ function BarraTopo() {
             <span className="font-medium">{contacto.telefone}</span>
           </a>
           <a
+            href={contacto.whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 transition-colors hover:text-accent"
+          >
+            <MessageCircle className="h-4 w-4 text-accent" aria-hidden="true" />
+            <span className="font-medium">{contacto.telemovel}</span>
+          </a>
+          <a
             href={`mailto:${contacto.email}`}
             className="inline-flex items-center gap-2 transition-colors hover:text-accent"
           >
