@@ -46,7 +46,9 @@ export const contacto = {
   organizacao: "ADEM — Agência de Desenvolvimento Económico da Província de Manica",
   morada: "Rua 16 de Junho, nr 217, Chimoio, Manica, Moçambique Província de Manica, Moçambique",
   telefone: "+258 251 22414",
-  telemovel: "+258 835140347",
+  telemovel: "+258 83 5140347",
+  whatsapp: "+258 83 5140347",
+  whatsappUrl: "https://wa.me/258835140347",
   email: "ademmanica@ademmanica.org",
   horario: "Segunda a Quinta, 07:30 — 15:30 · Sexta, 07:30 — 13:00",
   redes: [
