@@ -8,6 +8,7 @@ import {
   Linkedin,
   Mail,
   Menu,
+  MessageCircle,
   Phone,
   Plus,
   X,
