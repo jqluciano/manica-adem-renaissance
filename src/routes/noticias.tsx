@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
+import { CartaoExpansivel } from "@/components/site/CartaoExpansivel";
 import { useNoticias } from "@/data/conteudo";
 
 export const Route = createFileRoute("/noticias")({

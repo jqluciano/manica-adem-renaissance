@@ -9,6 +9,7 @@ import {
 } from "@/data/site";
 import { useNoticias, useProjectos } from "@/data/conteudo";
 import { HeroCarousel } from "@/components/site/HeroCarousel";
+import { CartaoExpansivel } from "@/components/site/CartaoExpansivel";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -245,23 +246,39 @@ function Index() {
         </div>
         <ul className="mt-10 grid gap-8 md:grid-cols-3">
           {noticias.slice(0, 3).map((noticia) => (
-            <li key={noticia.slug} className="flex flex-col">
+            <li
+              key={noticia.slug}
+              className="flex flex-col rounded-xl border border-border bg-card p-4"
+            >
               <img
                 src={noticia.imagem}
                 alt={noticia.titulo}
                 width={1200}
                 height={800}
                 loading="lazy"
-                className="h-44 w-full rounded-xl object-cover"
+                className="h-44 w-full rounded-lg object-cover"
               />
-              <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-brand">
-                {noticia.categoria}
-              </p>
-              <h3 className="mt-1 font-semibold text-foreground">{noticia.titulo}</h3>
-              <time dateTime={noticia.dataISO} className="mt-1 text-xs text-muted-foreground">
-                {noticia.data}
-              </time>
-              <p className="mt-2 text-sm text-muted-foreground">{noticia.resumo}</p>
+              <CartaoExpansivel
+                className="flex flex-1 flex-col"
+                detalhe={
+                  <div className="space-y-2 border-t border-border pt-3">
+                    {noticia.corpo.map((paragrafo) => (
+                      <p key={paragrafo} className="text-sm text-muted-foreground">
+                        {paragrafo}
+                      </p>
+                    ))}
+                  </div>
+                }
+              >
+                <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-brand">
+                  {noticia.categoria}
+                </p>
+                <h3 className="mt-1 font-semibold text-foreground">{noticia.titulo}</h3>
+                <time dateTime={noticia.dataISO} className="mt-1 text-xs text-muted-foreground">
+                  {noticia.data}
+                </time>
+                <p className="mt-2 text-sm text-muted-foreground">{noticia.resumo}</p>
+              </CartaoExpansivel>
             </li>
           ))}
         </ul>
