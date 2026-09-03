@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
+import { ChevronDown } from "lucide-react";
 import { CardCarousel } from "@/components/site/CardCarousel";
 import { PageHero } from "@/components/site/PageHero";
 import { areas, images, impacto } from "@/data/site";
