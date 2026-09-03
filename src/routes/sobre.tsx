@@ -47,9 +47,22 @@ function Sobre() {
       />
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-        <div className="grid items-center gap-10 md:grid-cols-2">
-          <div>
-            <h2 className="text-2xl font-bold text-foreground sm:text-3xl">A nossa história</h2>
+        <div className="grid gap-8 overflow-hidden rounded-2xl border border-border bg-card shadow-sm md:grid-cols-2 md:gap-10 md:p-2">
+          <img
+            src={images.galParceria}
+            alt="Representantes institucionais assinam um acordo de parceria"
+            width={1200}
+            height={800}
+            loading="lazy"
+            className="h-full w-full rounded-xl object-cover"
+          />
+          <div className="px-6 pb-6 md:py-8 md:pl-0 md:pr-8">
+            <span className="text-xs font-bold uppercase tracking-widest text-accent">
+              Quem somos
+            </span>
+            <h2 className="mt-2 text-2xl font-bold text-foreground sm:text-3xl">
+              A nossa história
+            </h2>
             <p className="mt-4 text-muted-foreground">
               A ADEM, foi constituída legal e juridicamente em novembro de 2000 como
               uma associação nacional de direito privado, com personalidade jurídica própria,
@@ -83,14 +96,6 @@ function Sobre() {
               internacionais.
             </p>
           </div>
-          <img
-            src={images.galParceria}
-            alt="Representantes institucionais assinam um acordo de parceria"
-            width={1200}
-            height={800}
-            loading="lazy"
-            className="w-full rounded-xl object-cover shadow-sm"
-          />
         </div>
       </section>
 
