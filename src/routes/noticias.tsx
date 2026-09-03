@@ -75,7 +75,18 @@ function Noticias() {
                 loading="lazy"
                 className="h-44 w-full object-cover"
               />
-              <div className="flex flex-1 flex-col p-6">
+              <CartaoExpansivel
+                className="flex flex-1 flex-col p-6"
+                detalhe={
+                  <div className="space-y-2 border-t border-border pt-3">
+                    {noticia.corpo.map((paragrafo) => (
+                      <p key={paragrafo} className="text-sm text-muted-foreground">
+                        {paragrafo}
+                      </p>
+                    ))}
+                  </div>
+                }
+              >
                 <p className="text-xs font-semibold uppercase tracking-wide text-brand">
                   {noticia.categoria}
                 </p>
@@ -84,7 +95,7 @@ function Noticias() {
                   {noticia.data}
                 </time>
                 <p className="mt-3 text-sm text-muted-foreground">{noticia.resumo}</p>
-              </div>
+              </CartaoExpansivel>
             </li>
           ))}
         </ul>
