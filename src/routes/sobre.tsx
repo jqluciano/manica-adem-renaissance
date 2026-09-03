@@ -39,6 +39,68 @@ const objectivosEspecificos = [
   "Aumentar a competitividade e sustentabilidade da agência.",
 ];
 
+function HistoriaTexto() {
+  const [aberto, setAberto] = useState(false);
+
+  return (
+    <div className="mt-4">
+      <div
+        className={`text-muted-foreground transition-all duration-300 ease-out ${
+          aberto ? "max-h-none opacity-100" : "max-h-24 overflow-hidden opacity-100"
+        }`}
+      >
+        <p>
+          A ADEM, foi constituída legal e juridicamente em novembro de 2000 como
+          uma associação nacional de direito privado, com personalidade jurídica própria,
+          sem fins lucrativos, autonomia administrativa, financeira, patrimonial. 
+          A publicação oficial no Boletim da Republica foi feita no dia 04 de 
+          Abril de 2001 III Série Numero 14 pagina 417. Actualmente a ADEM possui 22 membros dos
+          quais instituições públicas e privadas. A estrutura da ADEM é composta por uma Assembleia Geral,
+          um Conselho de Direcção, um Conselho Fiscal e uma direcção executiva composta por técnicos e 
+          pessoal administrativo com diferentes áreas de saber. A ADEM é uma instituição facilitadora e
+          de prestação de serviços de desenvolvimento.
+        </p>
+        <p className="mt-4">
+          ADEM é um mecanismo que viabiliza o combate à pobreza e a exclusão social na medida em que põem à 
+          disposição dos grupos vulneráveis tradicionalmente excluídos dos processos de desenvolvimento, 
+          os instrumentos técnicos e organizativos para, progressivamente, transformarem-se em sujeitos activos 
+          do próprio desenvolvimento. Mediante os serviços prestados a ADEM proporciona aos grupos alvo, 
+          (apoio à organização, capacitação, assistência técnica, estudos de viabilidade dos projectos, apoio ao
+          financiamento dos projectos, apoio à comercialização, melhoria do ambiente de negócios) estes constroem 
+          as próprias capacidades de competitividade no território e no mercado, numa lógica de cadeia de valor e 
+          de inclusão nos processos de desenvolvimento.
+        </p>
+        <p className="mt-4">
+          Criada para responder aos desafios económicos das comunidades de Manica, a ADEM
+          começou por apoiar pequenos produtores agrícolas e associações rurais. Ao longo dos
+          anos, alargou a sua actuação ao desenvolvimento empresarial, aos recursos naturais, ao
+          turismo e à inclusão de mulheres e jovens na economia local.
+        </p>
+        <p className="mt-4">
+          Hoje a agência actua em três Províncias do País (Manica, Sofala e Tete), na Província de Manica a ADEM actua todos distritos, em parceria com o Governo Provincial,
+          autoridades distritais, organizações comunitárias, sector privado e parceiros
+          internacionais.
+        </p>
+      </div>
+      {!aberto && (
+        <div className="pointer-events-none -mt-16 h-16 bg-gradient-to-t from-card to-transparent" />
+      )}
+      <button
+        type="button"
+        onClick={() => setAberto((v) => !v)}
+        aria-expanded={aberto}
+        className="mt-2 inline-flex items-center gap-1.5 text-sm font-semibold text-brand transition-colors hover:underline"
+      >
+        {aberto ? "Ver menos" : "Ler mais"}
+        <ChevronDown
+          className={`h-4 w-4 transition-transform duration-300 ${aberto ? "rotate-180" : ""}`}
+          aria-hidden="true"
+        />
+      </button>
+    </div>
+  );
+}
+
 function Sobre() {
   return (
     <>
