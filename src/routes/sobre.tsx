@@ -96,14 +96,6 @@ function Sobre() {
               internacionais.
             </p>
           </div>
-          <img
-            src={images.galParceria}
-            alt="Representantes institucionais assinam um acordo de parceria"
-            width={1200}
-            height={800}
-            loading="lazy"
-            className="w-full rounded-xl object-cover shadow-sm"
-          />
         </div>
       </section>
 
