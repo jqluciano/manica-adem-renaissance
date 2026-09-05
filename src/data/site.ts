@@ -61,6 +61,7 @@ export const contacto = {
 export const navegacao = [
   { to: "/", label: "Início" },
   { to: "/sobre", label: "Sobre nós" },
+  { to: "/projectos", label: "Projectos" },
   { to: "/noticias", label: "Notícias" },
   { to: "/publicacoes", label: "Publicações" },
   { to: "/videos", label: "Vídeos" },
