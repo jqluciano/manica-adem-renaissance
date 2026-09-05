@@ -14,7 +14,7 @@ import {
   X,
   Youtube,
 } from "lucide-react";
-import { categoriasPublicacoes, contacto, navegacao } from "@/data/site";
+import { categoriasPublicacoes, contacto, fasesProjectos, navegacao } from "@/data/site";
 import ademLogo from "@/assets/adem-logo.png.asset.json";
 
 const iconesRedes: Record<string, typeof Globe> = {
@@ -79,14 +79,14 @@ function BarraTopo() {
 
 export function Header() {
   const [aberto, setAberto] = useState(false);
-  const [submenu, setSubmenu] = useState(false);
-  const [submenuMovel, setSubmenuMovel] = useState(false);
-  const submenuRef = useRef<HTMLLIElement>(null);
+  const [submenu, setSubmenu] = useState<string | null>(null);
+  const [submenuMovel, setSubmenuMovel] = useState<string | null>(null);
+  const submenuRef = useRef<HTMLUListElement>(null);
 
   useEffect(() => {
     if (!submenu) return;
     function fora(e: MouseEvent) {
-      if (!submenuRef.current?.contains(e.target as Node)) setSubmenu(false);
+      if (!submenuRef.current?.contains(e.target as Node)) setSubmenu(null);
     }
     document.addEventListener("mousedown", fora);
     return () => document.removeEventListener("mousedown", fora);
@@ -105,21 +105,43 @@ export function Header() {
         </Link>
 
         <nav aria-label="Navegação principal" className="hidden lg:block">
-          <ul className="flex items-center gap-1">
-            {navegacao.map((item) =>
-              item.to === "/publicacoes" ? (
+          <ul ref={submenuRef} className="flex items-center gap-1">
+            {navegacao.map((item) => {
+              const sub =
+                item.to === "/publicacoes"
+                  ? categoriasPublicacoes.map((c) => ({ to: "/publicacoes" as const, search: { categoria: c.slug }, label: c.label }))
+                  : item.to === "/projectos"
+                    ? fasesProjectos.map((f) => ({ to: "/projectos" as const, search: { fase: f.slug }, label: f.label }))
+                    : null;
+
+              if (!sub) {
+                return (
+                  <li key={item.to}>
+                    <Link
+                      to={item.to}
+                      activeOptions={{ exact: item.to === "/" }}
+                      activeProps={{ className: "bg-secondary text-secondary-foreground" }}
+                      className="rounded-md px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-secondary hover:text-secondary-foreground"
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                );
+              }
+
+              const aberta = submenu === item.to;
+              return (
                 <li
                   key={item.to}
-                  ref={submenuRef}
                   className="relative"
-                  onMouseEnter={() => setSubmenu(true)}
-                  onMouseLeave={() => setSubmenu(false)}
+                  onMouseEnter={() => setSubmenu(item.to)}
+                  onMouseLeave={() => setSubmenu(null)}
                 >
                   <Link
-                    to="/publicacoes"
-                    search={{ categoria: undefined }}
+                    to={item.to}
+                    search={{} as never}
                     aria-haspopup="true"
-                    aria-expanded={submenu}
+                    aria-expanded={aberta}
                     activeProps={{ className: "bg-secondary text-secondary-foreground" }}
                     className="inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-secondary hover:text-secondary-foreground"
                   >
@@ -127,37 +149,26 @@ export function Header() {
                     <ChevronDown className="h-4 w-4" aria-hidden="true" />
                   </Link>
 
-                  {submenu && (
-                    <ul className="absolute left-0 top-full min-w-56 rounded-md border border-border bg-primary p-2 shadow-lg">
-                      {categoriasPublicacoes.map((cat) => (
-                        <li key={cat.slug}>
+                  {aberta && (
+                    <ul className="absolute left-0 top-full min-w-60 rounded-md border border-border bg-primary p-2 shadow-lg">
+                      {sub.map((op) => (
+                        <li key={op.label}>
                           <Link
-                            to="/publicacoes"
-                            search={{ categoria: cat.slug }}
-                            onClick={() => setSubmenu(false)}
+                            to={op.to}
+                            search={op.search as never}
+                            onClick={() => setSubmenu(null)}
                             className="flex items-center gap-2 rounded px-3 py-2 text-sm font-semibold uppercase tracking-wide text-primary-foreground transition-colors hover:bg-primary-foreground/10"
                           >
                             <Plus className="h-4 w-4" aria-hidden="true" />
-                            {cat.label}
+                            {op.label}
                           </Link>
                         </li>
                       ))}
                     </ul>
                   )}
                 </li>
-              ) : (
-                <li key={item.to}>
-                  <Link
-                    to={item.to}
-                    activeOptions={{ exact: item.to === "/" }}
-                    activeProps={{ className: "bg-secondary text-secondary-foreground" }}
-                    className="rounded-md px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-secondary hover:text-secondary-foreground"
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ),
-            )}
+              );
+            })}
           </ul>
         </nav>
 
@@ -180,63 +191,72 @@ export function Header() {
           className="border-t border-border bg-background lg:hidden"
         >
           <ul className="mx-auto max-w-6xl px-4 py-2 sm:px-6">
-            {navegacao.map((item) => (
-              <li key={item.to}>
-                {item.to === "/publicacoes" ? (
-                  <>
-                    <div className="flex items-center justify-between gap-2">
-                      <Link
-                        to="/publicacoes"
-                        search={{ categoria: undefined }}
-                        activeProps={{ className: "text-primary" }}
-                        onClick={() => setAberto(false)}
-                        className="block flex-1 rounded-md px-2 py-3 text-base font-medium text-foreground/90 transition-colors hover:bg-secondary"
-                      >
-                        {item.label}
-                      </Link>
-                      <button
-                        type="button"
-                        onClick={() => setSubmenuMovel((v) => !v)}
-                        aria-expanded={submenuMovel}
-                        aria-label="Mostrar categorias de publicações"
-                        className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border"
-                      >
-                        <ChevronDown
-                          className={`h-4 w-4 transition-transform ${submenuMovel ? "rotate-180" : ""}`}
-                        />
-                      </button>
-                    </div>
-                    {submenuMovel && (
-                      <ul className="mb-2 ml-2 border-l border-border pl-3">
-                        {categoriasPublicacoes.map((cat) => (
-                          <li key={cat.slug}>
-                            <Link
-                              to="/publicacoes"
-                              search={{ categoria: cat.slug }}
-                              onClick={() => setAberto(false)}
-                              className="flex items-center gap-2 rounded-md px-2 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-secondary"
-                            >
-                              <Plus className="h-4 w-4" aria-hidden="true" />
-                              {cat.label}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </>
-                ) : (
-                  <Link
-                    to={item.to}
-                    activeOptions={{ exact: item.to === "/" }}
-                    activeProps={{ className: "text-primary" }}
-                    onClick={() => setAberto(false)}
-                    className="block rounded-md px-2 py-3 text-base font-medium text-foreground/90 transition-colors hover:bg-secondary"
-                  >
-                    {item.label}
-                  </Link>
-                )}
-              </li>
-            ))}
+            {navegacao.map((item) => {
+              const sub =
+                item.to === "/publicacoes"
+                  ? categoriasPublicacoes.map((c) => ({ to: "/publicacoes" as const, search: { categoria: c.slug }, label: c.label }))
+                  : item.to === "/projectos"
+                    ? fasesProjectos.map((f) => ({ to: "/projectos" as const, search: { fase: f.slug }, label: f.label }))
+                    : null;
+
+              return (
+                <li key={item.to}>
+                  {sub ? (
+                    <>
+                      <div className="flex items-center justify-between gap-2">
+                        <Link
+                          to={item.to}
+                          search={{} as never}
+                          activeProps={{ className: "text-primary" }}
+                          onClick={() => setAberto(false)}
+                          className="block flex-1 rounded-md px-2 py-3 text-base font-medium text-foreground/90 transition-colors hover:bg-secondary"
+                        >
+                          {item.label}
+                        </Link>
+                        <button
+                          type="button"
+                          onClick={() => setSubmenuMovel((v) => (v === item.to ? null : item.to))}
+                          aria-expanded={submenuMovel === item.to}
+                          aria-label={`Mostrar opções de ${item.label}`}
+                          className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border"
+                        >
+                          <ChevronDown
+                            className={`h-4 w-4 transition-transform ${submenuMovel === item.to ? "rotate-180" : ""}`}
+                          />
+                        </button>
+                      </div>
+                      {submenuMovel === item.to && (
+                        <ul className="mb-2 ml-2 border-l border-border pl-3">
+                          {sub.map((op) => (
+                            <li key={op.label}>
+                              <Link
+                                to={op.to}
+                                search={op.search as never}
+                                onClick={() => setAberto(false)}
+                                className="flex items-center gap-2 rounded-md px-2 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-secondary"
+                              >
+                                <Plus className="h-4 w-4" aria-hidden="true" />
+                                {op.label}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </>
+                  ) : (
+                    <Link
+                      to={item.to}
+                      activeOptions={{ exact: item.to === "/" }}
+                      activeProps={{ className: "text-primary" }}
+                      onClick={() => setAberto(false)}
+                      className="block rounded-md px-2 py-3 text-base font-medium text-foreground/90 transition-colors hover:bg-secondary"
+                    >
+                      {item.label}
+                    </Link>
+                  )}
+                </li>
+              );
+            })}
           </ul>
         </nav>
       )}

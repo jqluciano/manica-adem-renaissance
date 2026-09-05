@@ -61,6 +61,7 @@ export const contacto = {
 export const navegacao = [
   { to: "/", label: "Início" },
   { to: "/sobre", label: "Sobre nós" },
+  { to: "/projectos", label: "Projectos" },
   { to: "/noticias", label: "Notícias" },
   { to: "/publicacoes", label: "Publicações" },
   { to: "/videos", label: "Vídeos" },
@@ -229,64 +230,79 @@ export const impacto = [
 
 export const areas = [
   {
-    titulo: "Agricultura e cadeias de valor",
+    titulo: "Promoção e Desenvolvimento Empresarial",
     texto:
-      "Assistência técnica a produtores, ligação ao mercado e desenvolvimento de cadeias de valor como milho, hortícolas, soja e sésamo.",
+      "Agro-negócio, acesso a mercados, incubação de empresas e empoderamento económico de mulheres e jovens.",
     detalhes: [
-      "Assistência técnica e extensão agrária a associações e produtores individuais.",
-      "Ligação a compradores, agro-processadores e mercados formais.",
-      "Introdução de boas práticas de produção, pós-colheita e armazenamento.",
+      "Agro-negócio",
+      "Acesso a mercados competitivos e estruturados",
+      "Incubação de empresas",
+      "Empoderamento económico de mulheres e jovens",
+      "Desenvolvimento de capacidades e habilidades de liderança",
+      "Desenvolvimento comunitário e modelos de desenvolvimento",
+      "Infraestruturas rurais",
+      "Plataformas digitais de agro-negócio — Kussaca e Kugulissa",
     ],
   },
   {
-    titulo: "Desenvolvimento empresarial (MPME)",
+    titulo: "Finanças Rurais",
     texto:
-      "Formação em gestão, planos de negócio, formalização e acesso a financiamento para micro, pequenas e médias empresas.",
+      "Alfabetização financeira, grupos de poupança e crédito rotativo e expansão de serviços financeiros nas zonas rurais.",
     detalhes: [
-      "Formação em gestão, contabilidade simplificada e marketing.",
-      "Apoio à elaboração de planos de negócio e à formalização das empresas.",
-      "Intermediação com instituições financeiras e produtos de crédito adequados.",
+      "Alfabetização financeira",
+      "Promoção e consolidação (inovação permanente) de grupos de poupança e crédito rotativo (ASCAS/PER) para desenvolvimento de cadeias de valor",
+      "Expansão de serviços financeiros às zonas rurais",
+      "Intermediação financeira",
+      "Gestão de fundos de crédito e garantia",
     ],
   },
   {
-    titulo: "Recursos naturais e Salvaguarda",
+    titulo: "Desenvolvimento Institucional",
     texto:
-      "Apoio à mineração artesanal responsável, gestão comunitária de recursos e mitigação de impactos ambientais.",
+      "Capacitação do pessoal, controlo interno, negócios sociais e gestão do conhecimento.",
     detalhes: [
-      "Promoção de práticas de mineração artesanal mais seguras e responsáveis.",
-      "Gestão comunitária de recursos naturais e planos de salvaguarda.",
-      "Mitigação de impactos ambientais e sociais dos projectos.",
-    ],
-  },
-
-  {
-    titulo: "Turismo e economia local",
-    texto:
-      "Valorização do potencial turístico de Manica, promoção do artesanato e dinamização de mercados locais.",
-    detalhes: [
-      "Valorização de destinos e rotas turísticas da província.",
-      "Promoção do artesanato e de produtos locais com identidade própria.",
-      "Dinamização de feiras e mercados que ligam produtores e visitantes.",
+      "Capacitação do pessoal",
+      "Aprimoramento de sistemas de controlo interno através de auditorias e avaliações",
+      "Desenvolvimento e implementação de negócios sociais",
+      "Documentação e partilha de boas práticas e lições aprendidas (gestão de conhecimento)",
     ],
   },
   {
-    titulo: "Género e inclusão",
+    titulo: "Cadeias de Valor",
     texto:
-      "Programas dirigidos a mulheres e jovens, com foco em liderança económica, poupança e crédito rotativo.",
+      "A ADEM implementa as suas actividades nas seguintes cadeias de valor.",
     detalhes: [
-      "Grupos de poupança e crédito rotativo liderados por mulheres.",
-      "Capacitação de jovens em empreendedorismo e competências técnicas.",
-      "Integração de critérios de género e inclusão em todos os projectos.",
+      "Planificação estratégica, descentralização e governação económica",
+      "Empreendedorismo económico e social",
+      "Micro-finanças",
+      "Agro-negócio",
+      "Digitalização do agro-negócio",
+      "Associativismo e cooperativismo",
+      "Água e saneamento",
     ],
   },
   {
-    titulo: "Ambiente e resiliência climática",
+    titulo: "Governação e Descentralização Económica baseada na estratégia do DEL",
     texto:
-      "Agricultura de conservação, agro-florestas e preparação das comunidades para eventos climáticos extremos.",
+      "Identificação de potencialidades locais, carteiras de projectos de DEL e diálogo entre actores do território.",
     detalhes: [
-      "Agricultura de conservação e sistemas agro-florestais.",
-      "Preparação comunitária para cheias, ciclones e secas.",
-      "Recuperação de solos e gestão sustentável da água.",
+      "Identificação de potencialidades e vectores de desenvolvimento económico local",
+      "Elaboração de carteira de projectos de DEL",
+      "Fóruns de diálogo e concertação locais",
+      "Conferências distritais de desenvolvimento",
+      "Apoio na elaboração e monitoria dos planos estratégicos de desenvolvimento",
+      "Marketing territorial",
+    ],
+  },
+  {
+    titulo: "Resiliência e Adaptação Climática para cadeias de valor",
+    texto:
+      "Gestão de riscos de desastres, planos de adaptação climática e gestão comunitária de recursos naturais.",
+    detalhes: [
+      "Mapas de riscos de desastres naturais e vulnerabilidade das cadeias de valor",
+      "Melhoria da gestão do conhecimento dos actores da cadeia de valor",
+      "Planos de adaptação climática para desenvolvimento de cadeias de valor",
+      "Comités locais de gestão de recursos naturais",
     ],
   },
 ];
@@ -546,3 +562,129 @@ export function categoriaDaPublicacao(tipo: string): string {
   );
   return encontrada?.slug ?? "outros";
 }
+
+export type FaseProjecto = "implementados" | "em-curso" | "futuros";
+
+export const fasesProjectos: { slug: FaseProjecto; label: string; descricao: string }[] = [
+  { slug: "implementados", label: "Projectos Implementados", descricao: "Projectos já executados pela ADEM com parceiros e financiadores." },
+  { slug: "em-curso", label: "Projectos Em Curso", descricao: "Projectos actualmente em implementação na província de Manica e no Corredor da Beira." },
+  { slug: "futuros", label: "Projectos Futuros", descricao: "Projectos previstos e em fase de mobilização de recursos." },
+];
+
+export type ProjectoFicha = {
+  slug: string;
+  titulo: string;
+  fase: FaseProjecto;
+  modelo: "Consórcio" | "Individual" | "N/A";
+  financiador: string;
+  orcamento: string;
+  local: string;
+  resultados: string;
+  parceiros: string;
+};
+
+export const projectosFicha: ProjectoFicha[] = [
+  {
+    slug: "fortalecimento-producao-sementes",
+    titulo: "Fortalecimento da produção de sementes e adopção de variedades melhoradas",
+    fase: "implementados",
+    modelo: "Consórcio",
+    financiador: "AGRA",
+    orcamento: "356 093,00 US$",
+    local: "Macate, Sussundenga, Manica, Guro e Nhamatanda",
+    resultados:
+      "205 VBA (Village Based Advisor), 84 163 produtores envolvidos, 33 PMEs envolvidas no processo de comercialização, 46 279 ton de milho e soja vendidas.",
+    parceiros: "SDAE, DPIC, IIAM, ISPM, Emilia Comercial, Sementes Nzara Yapera e Companhia de Zembe",
+  },
+  {
+    slug: "hortas-caseiras-nutricao",
+    titulo: "Promoção de Hortas Caseiras e educação Nutricional",
+    fase: "implementados",
+    modelo: "Individual",
+    financiador: "FAO",
+    orcamento: "90 693,00 US$",
+    local: "Sussundenga",
+    resultados:
+      "4 400 mulheres, 4 400 hortas caseiras, 400 kits de demonstração culinária, 3 feiras de demonstração culinária, 137 viveiros comunitários e escolares.",
+    parceiros: "SDAE, SDTEJ, SETSAN, SDSMAS",
+  },
+  {
+    slug: "scaling-up-sweetpotatoes",
+    titulo: "Scaling up sweetpotatoes through agriculture and nutrition",
+    fase: "implementados",
+    modelo: "N/A",
+    financiador: "CIP — Centro Internacional da Batata",
+    orcamento: "24 000,00 US$",
+    local: "Beira, Dondo, Gondola, Macate, Sussundenga e Manica",
+    resultados:
+      "60 ha de batata-doce plantados, 9 840 famílias, 78 720 kg de rama distribuídos e 95 multiplicadores de rama (66 em Manica e 29 em Sofala).",
+    parceiros: "SDAE, IIAM",
+  },
+  {
+    slug: "agronegocios-mercados-inclusivos-1",
+    titulo: "Fortalecimento de agronegócios e sistema de mercados inclusivos",
+    fase: "implementados",
+    modelo: "Consórcio",
+    financiador: "AGRA",
+    orcamento: "1 599 476,00 US$",
+    local: "Gondola, Vanduzi, Báruè, Macanga, Tsangano e Angónia",
+    resultados:
+      "409 VBA, 160 085 pequenos produtores assistidos, 203 MPMEs estabelecidas e fortalecidas para a venda de insumos, 1 963 ton de fertilizantes vendidas.",
+    parceiros: "SDAE, DPIC, Fundação MICAIA, UPCT, CED, DPAP, ICM, SPAE, Agrimerc, Novo Mundo Comércio e Serviços",
+  },
+  {
+    slug: "reducao-perdas-pos-colheita",
+    titulo: "Aceleração da absorção da tecnologia de redução de perdas pós-colheita",
+    fase: "implementados",
+    modelo: "Individual",
+    financiador: "AGRA",
+    orcamento: "185 000,00 US$",
+    local: "Corredor da Beira",
+    resultados:
+      "15 empresas de debulha mecanizada, promovida a produção local de debulhadoras na metalúrgica de Chimoio e estabelecida uma linha de crédito no Paulino Micro Crédito.",
+    parceiros: "SDAE, Metalúrgica, DPIC, Paulino Micro Crédito, Casa do Agricultor, ICM, Nyumba ya Zigaio de Malawi",
+  },
+  {
+    slug: "empoderamento-mulheres-jovens",
+    titulo: "Empoderamento Económico das Mulheres e Jovens adolescentes",
+    fase: "implementados",
+    modelo: "Consórcio",
+    financiador: "PMA",
+    orcamento: "100 000,00 US$",
+    local: "Gondola",
+    resultados:
+      "3 grupos de PCR estabelecidos, com 80 mulheres beneficiárias, 56 750,00 MT de volume de crédito e 80 mulheres e jovens beneficiárias de formações vocacionais.",
+    parceiros: "SDSMAS, CNCS, CPCS, DPGMAS, North Star Alliance",
+  },
+  {
+    slug: "recuperacao-economica-resiliente",
+    titulo: "Recuperação económica e resiliente dos meios de subsistência",
+    fase: "implementados",
+    modelo: "Individual",
+    financiador: "PNUD/MRF",
+    orcamento: "217 122,00 US$",
+    local: "Machanga e Chibabava",
+    resultados: "Apresentado o projecto ao governo distrital.",
+    parceiros: "SDAE, Comités de gestão de riscos e desastres, MRF",
+  },
+  {
+    slug: "sistemas-alimentares-seguranca",
+    titulo: "Fortalecimento de Sistemas Alimentares e de Segurança Alimentar",
+    fase: "implementados",
+    modelo: "Individual",
+    financiador: "Embaixada do Reino dos Países Baixos (Holanda)",
+    orcamento: "1 883 779,00 US$",
+    local:
+      "Província de Manica (Báruè, Vanduzi, Manica, Sussundenga, Chimoio, Macate e Gondola) e Província de Sofala (Beira, Dondo, Nhamatanda, Búzi e Gorongosa)",
+    resultados:
+      "O projecto iniciou em Setembro de 2023 e decorre até Agosto de 2027; foi feita a mobilização do pessoal e a elaboração de manuais e brochuras de treinamento.",
+    parceiros: "Direcção Provincial de Indústria e Comércio, de Agricultura e Pescas, SDAE, Sector Privado (DECA, EC)",
+  },
+];
+
+export const totaisProjectos = {
+  total: 10,
+  orcamento: "4 947 233,00 US$",
+  financiadores: 7,
+  modelos: 2,
+};
