@@ -53,8 +53,24 @@ export function Footer() {
             </li>
             <li className="flex gap-3">
               <Phone className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden="true" />
-              <a href={`tel:${contacto.telefone.replace(/\s/g, "")}`} className="hover:text-accent">
-                {contacto.telefone}
+              <div className="space-y-1">
+                <a href={`tel:${contacto.telefone.replace(/\s/g, "")}`} className="block hover:text-accent">
+                  {contacto.telefone}
+                </a>
+                <a href={`tel:${contacto.telemovel.replace(/\s/g, "")}`} className="block hover:text-accent">
+                  {contacto.telemovel}
+                </a>
+              </div>
+            </li>
+            <li className="flex gap-3">
+              <MessageCircle className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden="true" />
+              <a
+                href={contacto.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-accent"
+              >
+                WhatsApp: {contacto.whatsapp}
               </a>
             </li>
             <li className="flex gap-3">
