@@ -229,64 +229,79 @@ export const impacto = [
 
 export const areas = [
   {
-    titulo: "Agricultura e cadeias de valor",
+    titulo: "Promoção e Desenvolvimento Empresarial",
     texto:
-      "Assistência técnica a produtores, ligação ao mercado e desenvolvimento de cadeias de valor como milho, hortícolas, soja e sésamo.",
+      "Agro-negócio, acesso a mercados, incubação de empresas e empoderamento económico de mulheres e jovens.",
     detalhes: [
-      "Assistência técnica e extensão agrária a associações e produtores individuais.",
-      "Ligação a compradores, agro-processadores e mercados formais.",
-      "Introdução de boas práticas de produção, pós-colheita e armazenamento.",
+      "Agro-negócio",
+      "Acesso a mercados competitivos e estruturados",
+      "Incubação de empresas",
+      "Empoderamento económico de mulheres e jovens",
+      "Desenvolvimento de capacidades e habilidades de liderança",
+      "Desenvolvimento comunitário e modelos de desenvolvimento",
+      "Infraestruturas rurais",
+      "Plataformas digitais de agro-negócio — Kussaca e Kugulissa",
     ],
   },
   {
-    titulo: "Desenvolvimento empresarial (MPME)",
+    titulo: "Finanças Rurais",
     texto:
-      "Formação em gestão, planos de negócio, formalização e acesso a financiamento para micro, pequenas e médias empresas.",
+      "Alfabetização financeira, grupos de poupança e crédito rotativo e expansão de serviços financeiros nas zonas rurais.",
     detalhes: [
-      "Formação em gestão, contabilidade simplificada e marketing.",
-      "Apoio à elaboração de planos de negócio e à formalização das empresas.",
-      "Intermediação com instituições financeiras e produtos de crédito adequados.",
+      "Alfabetização financeira",
+      "Promoção e consolidação (inovação permanente) de grupos de poupança e crédito rotativo (ASCAS/PER) para desenvolvimento de cadeias de valor",
+      "Expansão de serviços financeiros às zonas rurais",
+      "Intermediação financeira",
+      "Gestão de fundos de crédito e garantia",
     ],
   },
   {
-    titulo: "Recursos naturais e Salvaguarda",
+    titulo: "Desenvolvimento Institucional",
     texto:
-      "Apoio à mineração artesanal responsável, gestão comunitária de recursos e mitigação de impactos ambientais.",
+      "Capacitação do pessoal, controlo interno, negócios sociais e gestão do conhecimento.",
     detalhes: [
-      "Promoção de práticas de mineração artesanal mais seguras e responsáveis.",
-      "Gestão comunitária de recursos naturais e planos de salvaguarda.",
-      "Mitigação de impactos ambientais e sociais dos projectos.",
-    ],
-  },
-
-  {
-    titulo: "Turismo e economia local",
-    texto:
-      "Valorização do potencial turístico de Manica, promoção do artesanato e dinamização de mercados locais.",
-    detalhes: [
-      "Valorização de destinos e rotas turísticas da província.",
-      "Promoção do artesanato e de produtos locais com identidade própria.",
-      "Dinamização de feiras e mercados que ligam produtores e visitantes.",
+      "Capacitação do pessoal",
+      "Aprimoramento de sistemas de controlo interno através de auditorias e avaliações",
+      "Desenvolvimento e implementação de negócios sociais",
+      "Documentação e partilha de boas práticas e lições aprendidas (gestão de conhecimento)",
     ],
   },
   {
-    titulo: "Género e inclusão",
+    titulo: "Cadeias de Valor",
     texto:
-      "Programas dirigidos a mulheres e jovens, com foco em liderança económica, poupança e crédito rotativo.",
+      "A ADEM implementa as suas actividades nas seguintes cadeias de valor.",
     detalhes: [
-      "Grupos de poupança e crédito rotativo liderados por mulheres.",
-      "Capacitação de jovens em empreendedorismo e competências técnicas.",
-      "Integração de critérios de género e inclusão em todos os projectos.",
+      "Planificação estratégica, descentralização e governação económica",
+      "Empreendedorismo económico e social",
+      "Micro-finanças",
+      "Agro-negócio",
+      "Digitalização do agro-negócio",
+      "Associativismo e cooperativismo",
+      "Água e saneamento",
     ],
   },
   {
-    titulo: "Ambiente e resiliência climática",
+    titulo: "Governação e Descentralização Económica baseada na estratégia do DEL",
     texto:
-      "Agricultura de conservação, agro-florestas e preparação das comunidades para eventos climáticos extremos.",
+      "Identificação de potencialidades locais, carteiras de projectos de DEL e diálogo entre actores do território.",
     detalhes: [
-      "Agricultura de conservação e sistemas agro-florestais.",
-      "Preparação comunitária para cheias, ciclones e secas.",
-      "Recuperação de solos e gestão sustentável da água.",
+      "Identificação de potencialidades e vectores de desenvolvimento económico local",
+      "Elaboração de carteira de projectos de DEL",
+      "Fóruns de diálogo e concertação locais",
+      "Conferências distritais de desenvolvimento",
+      "Apoio na elaboração e monitoria dos planos estratégicos de desenvolvimento",
+      "Marketing territorial",
+    ],
+  },
+  {
+    titulo: "Resiliência e Adaptação Climática para cadeias de valor",
+    texto:
+      "Gestão de riscos de desastres, planos de adaptação climática e gestão comunitária de recursos naturais.",
+    detalhes: [
+      "Mapas de riscos de desastres naturais e vulnerabilidade das cadeias de valor",
+      "Melhoria da gestão do conhecimento dos actores da cadeia de valor",
+      "Planos de adaptação climática para desenvolvimento de cadeias de valor",
+      "Comités locais de gestão de recursos naturais",
     ],
   },
 ];
