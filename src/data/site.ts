@@ -561,3 +561,129 @@ export function categoriaDaPublicacao(tipo: string): string {
   );
   return encontrada?.slug ?? "outros";
 }
+
+export type FaseProjecto = "implementados" | "em-curso" | "futuros";
+
+export const fasesProjectos: { slug: FaseProjecto; label: string; descricao: string }[] = [
+  { slug: "implementados", label: "Projectos Implementados", descricao: "Projectos já executados pela ADEM com parceiros e financiadores." },
+  { slug: "em-curso", label: "Projectos Em Curso", descricao: "Projectos actualmente em implementação na província de Manica e no Corredor da Beira." },
+  { slug: "futuros", label: "Projectos Futuros", descricao: "Projectos previstos e em fase de mobilização de recursos." },
+];
+
+export type ProjectoFicha = {
+  slug: string;
+  titulo: string;
+  fase: FaseProjecto;
+  modelo: "Consórcio" | "Individual" | "N/A";
+  financiador: string;
+  orcamento: string;
+  local: string;
+  resultados: string;
+  parceiros: string;
+};
+
+export const projectosFicha: ProjectoFicha[] = [
+  {
+    slug: "fortalecimento-producao-sementes",
+    titulo: "Fortalecimento da produção de sementes e adopção de variedades melhoradas",
+    fase: "implementados",
+    modelo: "Consórcio",
+    financiador: "AGRA",
+    orcamento: "356 093,00 US$",
+    local: "Macate, Sussundenga, Manica, Guro e Nhamatanda",
+    resultados:
+      "205 VBA (Village Based Advisor), 84 163 produtores envolvidos, 33 PMEs envolvidas no processo de comercialização, 46 279 ton de milho e soja vendidas.",
+    parceiros: "SDAE, DPIC, IIAM, ISPM, Emilia Comercial, Sementes Nzara Yapera e Companhia de Zembe",
+  },
+  {
+    slug: "hortas-caseiras-nutricao",
+    titulo: "Promoção de Hortas Caseiras e educação Nutricional",
+    fase: "implementados",
+    modelo: "Individual",
+    financiador: "FAO",
+    orcamento: "90 693,00 US$",
+    local: "Sussundenga",
+    resultados:
+      "4 400 mulheres, 4 400 hortas caseiras, 400 kits de demonstração culinária, 3 feiras de demonstração culinária, 137 viveiros comunitários e escolares.",
+    parceiros: "SDAE, SDTEJ, SETSAN, SDSMAS",
+  },
+  {
+    slug: "scaling-up-sweetpotatoes",
+    titulo: "Scaling up sweetpotatoes through agriculture and nutrition",
+    fase: "implementados",
+    modelo: "N/A",
+    financiador: "CIP — Centro Internacional da Batata",
+    orcamento: "24 000,00 US$",
+    local: "Beira, Dondo, Gondola, Macate, Sussundenga e Manica",
+    resultados:
+      "60 ha de batata-doce plantados, 9 840 famílias, 78 720 kg de rama distribuídos e 95 multiplicadores de rama (66 em Manica e 29 em Sofala).",
+    parceiros: "SDAE, IIAM",
+  },
+  {
+    slug: "agronegocios-mercados-inclusivos-1",
+    titulo: "Fortalecimento de agronegócios e sistema de mercados inclusivos",
+    fase: "implementados",
+    modelo: "Consórcio",
+    financiador: "AGRA",
+    orcamento: "1 599 476,00 US$",
+    local: "Gondola, Vanduzi, Báruè, Macanga, Tsangano e Angónia",
+    resultados:
+      "409 VBA, 160 085 pequenos produtores assistidos, 203 MPMEs estabelecidas e fortalecidas para a venda de insumos, 1 963 ton de fertilizantes vendidas.",
+    parceiros: "SDAE, DPIC, Fundação MICAIA, UPCT, CED, DPAP, ICM, SPAE, Agrimerc, Novo Mundo Comércio e Serviços",
+  },
+  {
+    slug: "reducao-perdas-pos-colheita",
+    titulo: "Aceleração da absorção da tecnologia de redução de perdas pós-colheita",
+    fase: "implementados",
+    modelo: "Individual",
+    financiador: "AGRA",
+    orcamento: "185 000,00 US$",
+    local: "Corredor da Beira",
+    resultados:
+      "15 empresas de debulha mecanizada, promovida a produção local de debulhadoras na metalúrgica de Chimoio e estabelecida uma linha de crédito no Paulino Micro Crédito.",
+    parceiros: "SDAE, Metalúrgica, DPIC, Paulino Micro Crédito, Casa do Agricultor, ICM, Nyumba ya Zigaio de Malawi",
+  },
+  {
+    slug: "empoderamento-mulheres-jovens",
+    titulo: "Empoderamento Económico das Mulheres e Jovens adolescentes",
+    fase: "implementados",
+    modelo: "Consórcio",
+    financiador: "PMA",
+    orcamento: "100 000,00 US$",
+    local: "Gondola",
+    resultados:
+      "3 grupos de PCR estabelecidos, com 80 mulheres beneficiárias, 56 750,00 MT de volume de crédito e 80 mulheres e jovens beneficiárias de formações vocacionais.",
+    parceiros: "SDSMAS, CNCS, CPCS, DPGMAS, North Star Alliance",
+  },
+  {
+    slug: "recuperacao-economica-resiliente",
+    titulo: "Recuperação económica e resiliente dos meios de subsistência",
+    fase: "implementados",
+    modelo: "Individual",
+    financiador: "PNUD/MRF",
+    orcamento: "217 122,00 US$",
+    local: "Machanga e Chibabava",
+    resultados: "Apresentado o projecto ao governo distrital.",
+    parceiros: "SDAE, Comités de gestão de riscos e desastres, MRF",
+  },
+  {
+    slug: "sistemas-alimentares-seguranca",
+    titulo: "Fortalecimento de Sistemas Alimentares e de Segurança Alimentar",
+    fase: "implementados",
+    modelo: "Individual",
+    financiador: "Embaixada do Reino dos Países Baixos (Holanda)",
+    orcamento: "1 883 779,00 US$",
+    local:
+      "Província de Manica (Báruè, Vanduzi, Manica, Sussundenga, Chimoio, Macate e Gondola) e Província de Sofala (Beira, Dondo, Nhamatanda, Búzi e Gorongosa)",
+    resultados:
+      "O projecto iniciou em Setembro de 2023 e decorre até Agosto de 2027; foi feita a mobilização do pessoal e a elaboração de manuais e brochuras de treinamento.",
+    parceiros: "Direcção Provincial de Indústria e Comércio, de Agricultura e Pescas, SDAE, Sector Privado (DECA, EC)",
+  },
+];
+
+export const totaisProjectos = {
+  total: 10,
+  orcamento: "4 947 233,00 US$",
+  financiadores: 7,
+  modelos: 2,
+};
