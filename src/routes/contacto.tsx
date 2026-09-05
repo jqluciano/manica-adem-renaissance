@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { Clock, Mail, MapPin, Phone } from "lucide-react";
+import { Clock, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import { contacto } from "@/data/site";
 
@@ -71,6 +71,21 @@ function Contacto() {
                   className="text-sm text-muted-foreground hover:text-brand"
                 >
                   {contacto.telemovel}
+                </a>
+              </div>
+            </li>
+            <li className="flex gap-4">
+              <MessageCircle className="mt-1 h-5 w-5 shrink-0 text-brand" aria-hidden="true" />
+              <div>
+                <p className="font-medium text-foreground">WhatsApp</p>
+                <a
+                  href={contacto.whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-md bg-[#25D366] px-3 py-1.5 text-sm font-medium text-white transition-opacity hover:opacity-90"
+                >
+                  <MessageCircle className="h-4 w-4" aria-hidden="true" />
+                  {contacto.whatsapp}
                 </a>
               </div>
             </li>
