@@ -581,6 +581,10 @@ export type ProjectoFicha = {
   local: string;
   resultados: string;
   parceiros: string;
+  /** Ano/período de vigência (projectos em curso ou futuros). */
+  vigencia?: string;
+  /** Estado visível no selo do card (ex.: "Em curso", "Em processo de assinatura de contrato"). */
+  estado?: string;
 };
 
 export const projectosFicha: ProjectoFicha[] = [
@@ -680,6 +684,98 @@ export const projectosFicha: ProjectoFicha[] = [
       "O projecto iniciou em Setembro de 2023 e decorre até Agosto de 2027; foi feita a mobilização do pessoal e a elaboração de manuais e brochuras de treinamento.",
     parceiros: "Direcção Provincial de Indústria e Comércio, de Agricultura e Pescas, SDAE, Sector Privado (DECA, EC)",
   },
+  // ===== Projectos em curso =====
+  {
+    slug: "descentralizacao-desenvolvimento",
+    titulo: "Descentralização para o Desenvolvimento",
+    fase: "em-curso",
+    modelo: "N/A",
+    financiador: "PNUD",
+    orcamento: "120 000,00 US$",
+    local: "Província de Manica",
+    resultados: "Projecto em implementação na província de Manica.",
+    parceiros: "PNUD, Governo da Província de Manica",
+    vigencia: "2025",
+    estado: "Em curso",
+  },
+  {
+    slug: "pcr-fnds",
+    titulo: "Promoção e consolidação dos Grupos de Poupança e Crédito Rotativo na província",
+    fase: "em-curso",
+    modelo: "N/A",
+    financiador: "FNDS — Fundo Nacional de Desenvolvimento Sustentável",
+    orcamento: "9 855 638,20 MZN",
+    local: "Província de Manica e Sofala",
+    resultados: "Consolidação e expansão de Grupos de Poupança e Crédito Rotativo (PCRs).",
+    parceiros: "FNDS, SDAE",
+    vigencia: "2024",
+    estado: "Em curso",
+  },
+  {
+    slug: "pccaa-comercio-conectividade",
+    titulo: "Projecto de Comércio e Conectividade da África Austral (PCCAA)",
+    fase: "em-curso",
+    modelo: "N/A",
+    financiador: "Ministério de Transporte e Comunicação / Banco Mundial",
+    orcamento: "50 523 462,00 MZN",
+    local: "Províncias de Manica, Tete, Zambézia, Nampula e Niassa",
+    resultados: "Melhoria do comércio e da conectividade ao longo do corredor.",
+    parceiros: "Ministério de Transporte e Comunicação, Banco Mundial",
+    vigencia: "2027",
+    estado: "Em curso",
+  },
+  {
+    slug: "sustain-pro",
+    titulo: "Sustain Pro — Transformar os sistemas de produção agrícola",
+    fase: "em-curso",
+    modelo: "N/A",
+    financiador: "IUCN — União Internacional para Conservação da Natureza",
+    orcamento: "1 066 730,00 NOK",
+    local: "Província de Manica",
+    resultados: "Transformação dos sistemas de produção agrícola com práticas sustentáveis.",
+    parceiros: "IUCN, SDAE",
+    vigencia: "2025",
+    estado: "Em curso",
+  },
+  {
+    slug: "food-systems-beira",
+    titulo: "Strengthening Food Systems and Food and Nutrition Security in Beira Corridor",
+    fase: "em-curso",
+    modelo: "N/A",
+    financiador: "Embaixada dos Países do Reino Baixos / Technoserve",
+    orcamento: "1 883 799,00 MZN",
+    local: "Província de Manica e Sofala",
+    resultados: "Fortalecimento dos sistemas alimentares e da segurança alimentar e nutricional no Corredor da Beira.",
+    parceiros: "Technoserve, Embaixada do Reino dos Países Baixos",
+    vigencia: "2027",
+    estado: "Em curso",
+  },
+  {
+    slug: "strengthening-private-sector-agra",
+    titulo: "Strengthening local private sector to support agri-food systems resilience",
+    fase: "em-curso",
+    modelo: "N/A",
+    financiador: "AGRA — Aliança Para Revolução Verde em África",
+    orcamento: "399 820,00 US$",
+    local: "Província de Manica",
+    resultados: "Fortalecimento do sector privado local de apoio aos sistemas agro-alimentares.",
+    parceiros: "AGRA",
+    vigencia: "2026",
+    estado: "Em processo de assinatura de contrato",
+  },
+  {
+    slug: "pcr-ministerio-mar",
+    titulo: "Promoção e consolidação de Grupos de Poupança e Crédito Rotativo (PCRs)",
+    fase: "em-curso",
+    modelo: "N/A",
+    financiador: "Ministério do Mar, Águas Interiores e Pescas",
+    orcamento: "1 038 277,56 US$",
+    local: "Província de Manica e Tete",
+    resultados: "Promoção e consolidação de Grupos de Poupança e Crédito Rotativo nas comunidades pesqueiras.",
+    parceiros: "Ministério do Mar, Águas Interiores e Pescas",
+    vigencia: "2027",
+    estado: "Em processo de assinatura de contrato",
+  },
 ];
 
 export const totaisProjectos = {
@@ -687,4 +783,11 @@ export const totaisProjectos = {
   orcamento: "4 947 233,00 US$",
   financiadores: 7,
   modelos: 2,
+};
+
+export const totaisEmCurso = {
+  total: 7,
+  orcamento: "2 655 643,30 US$",
+  financiadores: 7,
+  modelos: 3,
 };
