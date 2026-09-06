@@ -7,7 +7,7 @@ import {
   images,
   impacto,
 } from "@/data/site";
-import { useNoticias, useProjectos } from "@/data/conteudo";
+import { useGaleria, useNoticias, useProjectos } from "@/data/conteudo";
 import { HeroCarousel } from "@/components/site/HeroCarousel";
 import { CartaoExpansivel } from "@/components/site/CartaoExpansivel";
 
@@ -34,11 +34,13 @@ export const Route = createFileRoute("/")({
 function Index() {
   const projectos = useProjectos();
   const noticias = useNoticias();
+  const galeria = useGaleria();
+  const slidesHero = galeria.length > 0 ? galeria : heroSlides;
 
   return (
     <>
       <HeroCarousel
-        slides={heroSlides}
+        slides={slidesHero}
         conteudos={[
           {
             eyebrow: "Província de Manica · Moçambique",
