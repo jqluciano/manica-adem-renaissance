@@ -581,6 +581,10 @@ export type ProjectoFicha = {
   local: string;
   resultados: string;
   parceiros: string;
+  /** Ano/período de vigência (projectos em curso ou futuros). */
+  vigencia?: string;
+  /** Estado visível no selo do card (ex.: "Em curso", "Em processo de assinatura de contrato"). */
+  estado?: string;
 };
 
 export const projectosFicha: ProjectoFicha[] = [
