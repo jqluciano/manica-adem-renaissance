@@ -1,10 +1,14 @@
+import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { ChevronDown } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import {
   fasesProjectos,
   projectosFicha,
+  totaisEmCurso,
   totaisProjectos,
   type FaseProjecto,
+  type ProjectoFicha,
 } from "@/data/site";
 
 export const Route = createFileRoute("/projectos")({
