@@ -135,6 +135,33 @@ function Sobre() {
         </div>
       </section>
 
+      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+        <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
+          <img
+            src={equipaAsset.url}
+            alt="Equipa da ADEM — técnicos e pessoal administrativo"
+            width={1600}
+            height={1200}
+            loading="lazy"
+            className="h-full w-full object-cover"
+          />
+          <div className="px-6 py-6 md:px-8">
+            <span className="text-xs font-bold uppercase tracking-widest text-accent">
+              A nossa equipa
+            </span>
+            <h2 className="mt-2 text-2xl font-bold text-foreground sm:text-3xl">
+              Quem faz a ADEM
+            </h2>
+            <p className="mt-3 text-sm text-muted-foreground">
+              A direcção executiva é composta por técnicos e pessoal administrativo com
+              diferentes áreas de saber, que trabalham no terreno com as comunidades e para
+              elas, em parceria com o Governo Provincial, autoridades distritais e
+              organizações comunitárias.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section className="bg-secondary/60 py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <h2 className="text-2xl font-bold text-foreground sm:text-3xl">
