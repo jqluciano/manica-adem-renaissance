@@ -100,7 +100,7 @@ export function Header() {
           <img
             src={ademLogo.url}
             alt="ADEM — Agência de Desenvolvimento Económico da Província de Manica"
-            className="h-12 w-auto max-w-[190px] object-contain sm:h-14 sm:max-w-[230px]"
+            className="h-16 w-auto max-w-[230px] object-contain sm:h-20 sm:max-w-[280px]"
           />
         </Link>
 
