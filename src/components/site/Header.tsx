@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { categoriasPublicacoes, contacto, fasesProjectos, navegacao } from "@/data/site";
 import ademLogo from "@/assets/adem-logo.png.asset.json";
+import { CanalDenuncia } from "./CanalDenuncia";
 
 const iconesRedes: Record<string, typeof Globe> = {
   Facebook,
@@ -71,6 +72,7 @@ function BarraTopo() {
             <Mail className="h-4 w-4 text-accent" aria-hidden="true" />
             <span className="font-medium break-all">{contacto.email}</span>
           </a>
+          <CanalDenuncia />
         </div>
       </div>
     </div>
